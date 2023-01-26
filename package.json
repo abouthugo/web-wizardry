@@ -1,6 +1,6 @@
 {
-  "name": "personal-site",
-  "version": "0.1.0",
+  "name": "web-wizardry",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
