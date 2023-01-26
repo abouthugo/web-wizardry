@@ -1,0 +1,14 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Whitering Garden",
+      "image": {
+        "src": "withering-garden.png",
+        "alt": "Whitering garden"
+      },
+      "date": "Jan 24, 2023",
+      "content": "withering-garden.md"
+    }
+  ]
+}
