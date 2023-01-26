@@ -89,6 +89,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   color: rbg(--foreground-rgb);
   background: linear-gradient(
