@@ -3,40 +3,28 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const NavData = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog" },
-];
-
-const NavItem = ({ item }: { item: NavObj }) => {
-  if (item.current)
-    return (
-      <Link
-        href={item.href}
-        className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent  md:p-0 dark:text-white"
-      >
-        {item.name}
-      </Link>
-    );
+const NavItem = ({ children, href }: ItemPropsI) => {
+  const pathname = usePathname();
   return (
-    <Link
-      href={item.href}
-      className="block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-white dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700"
-    >
-      {item.name}
-    </Link>
+    <li>
+      <Link
+        href={href}
+        className={
+          href === pathname
+            ? "block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent  md:p-0 dark:text-white"
+            : "block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-white dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700"
+        }
+      >
+        {children}
+      </Link>
+    </li>
   );
 };
 
-const NavList = ({ items }: { items: NavObj[] }) => {
-  const pathname = usePathname();
+const NavList = ({ children }: BasicPropsI) => {
   return (
     <ul className="flex flex-col p-4 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-medium md:border-0 md:bg-white dark:bg-neutral-800 md:dark:bg-neutral-800 dark:border-neutral-700">
-      {items.map((item) => (
-        <li key={item.name}>
-          <NavItem item={{ ...item, current: item.href === pathname }} />
-        </li>
-      ))}
+      {children}
     </ul>
   );
 };
@@ -57,19 +45,19 @@ export function NavBar() {
             HP
           </span>
         </Link>
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
-        >
-          <NavList items={NavData} />
-        </div>
+        <NavList>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/blog">Blog</NavItem>
+          <NavItem href="/about">About</NavItem>
+        </NavList>
       </div>
     </nav>
   );
 }
 
-type NavObj = {
-  name: string;
-  current?: boolean;
+interface BasicPropsI {
+  children: React.ReactNode;
+}
+interface ItemPropsI extends BasicPropsI {
   href: string;
-};
+}
