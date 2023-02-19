@@ -18,7 +18,7 @@ export default function RootLayout({
           <header className="mb-10">
             <NavBar />
           </header>
-          <main className="h-96 flex-1">{children}</main>
+          <main className="h-96 flex-1 px-4">{children}</main>
         </div>
       </body>
     </html>
