@@ -15,10 +15,10 @@ export default function RootLayout({
         <div
           className={`flex min-h-screen flex-col bg-neutral-900 ${inter.className}`}
         >
-          <header className="mb-20">
+          <header className="mb-10">
             <NavBar />
           </header>
-          <main className="h-96 flex-1  p-4">{children}</main>
+          <main className="h-96 flex-1">{children}</main>
         </div>
       </body>
     </html>
