@@ -1,75 +1,184 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const NavData = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog" },
-];
-
-const NavItem = ({ item }: { item: NavObj }) => {
-  if (item.current)
-    return (
-      <Link
-        href={item.href}
-        className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent  md:p-0 dark:text-white"
-      >
-        {item.name}
-      </Link>
-    );
+const LogoComponent = ({ width, height, justLogo = false }: LogoPropsI) => {
   return (
-    <Link
-      href={item.href}
-      className="block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-white dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700"
-    >
-      {item.name}
-    </Link>
+    <>
+      <Image
+        width={width}
+        height={height}
+        className="h-6 mr-3 sm:h-9"
+        src="juicelogo.svg"
+        alt="Juicebox logo"
+      />
+      {!justLogo && (
+        <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
+          HP
+        </span>
+      )}
+    </>
   );
 };
 
-const NavList = ({ items }: { items: NavObj[] }) => {
-  const pathname = usePathname();
+const NavItem = ({ children, href }: ItemPropsI) => {
   return (
-    <ul className="flex flex-col p-4 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-medium md:border-0 md:bg-white dark:bg-neutral-800 md:dark:bg-neutral-800 dark:border-neutral-700">
-      {items.map((item) => (
-        <li key={item.name}>
-          <NavItem item={{ ...item, current: item.href === pathname }} />
-        </li>
-      ))}
-    </ul>
+    <li>
+      <Link
+        href={href}
+        className="block py-2 pl-3 pr-4 md:p-0 text-white hover:text-neutral-300"
+      >
+        {children}
+      </Link>
+    </li>
+  );
+};
+
+const NavList = ({ children }: BasicPropsI) => {
+  const [hidden, setHidden] = useState(true);
+  const onClick: OnClickType = (e) => {
+    e.preventDefault();
+    setHidden(!hidden);
+  };
+
+  const HamburgerMenu = () => (
+    <button className="md:hidden flex w-8 cursor-pointer" onClick={onClick}>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        fill="none"
+        stroke="none"
+        width="100%"
+        height="100%"
+      >
+        <title>Menu</title>
+        <rect x="0" y="0" width="100%" height="100%" fillRule="nonzero" />
+        <line
+          x1="5"
+          y1="7"
+          x2="19"
+          y2="7"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="5"
+          y1="17"
+          x2="19"
+          y2="17"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="5"
+          y1="12"
+          x2="19"
+          y2="12"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    </button>
+  );
+
+  const CloseMobileMenuButton = () => (
+    <button className="flex w-6 h-6 cursor-pointer" onClick={onClick}>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="#ffffff"
+        width="100%"
+        height="100%"
+      >
+        <path
+          d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z"
+          fill="#ffffff"
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+      </svg>
+    </button>
+  );
+
+  const MobileMenuPortal = () => {
+    return (
+      <ul
+        className={`${
+          hidden ? "hidden" : ""
+        } absolute top-0 right-0 m-1 flex-col w-4/6  border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
+      >
+        <div className="flex container md:hidden p-2 flex-wrap items-center justify-between mx-auto mb-3">
+          <div className="flex items-center">
+            <LogoComponent width={30} height={30} justLogo />
+          </div>
+          <CloseMobileMenuButton />
+        </div>
+        <div onClick={onClick} className="p-2 bg-zinc-800 rounded-lg">
+          {children}
+        </div>
+      </ul>
+    );
+  };
+  return (
+    <>
+      <HamburgerMenu />
+      <ul className="hidden flex-col md:justify-end w-4/6 p-4 border rounded-lg md:flex md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0">
+        <div className="flex container md:hidden flex-wrap items-center justify-between mx-auto">
+          <div className="flex items-center">
+            <LogoComponent width={30} height={30} />
+          </div>
+          <button className="flex w-6 h-6 cursor-pointer" onClick={onClick}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff">
+              <path
+                d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z"
+                fill="#ffffff"
+                fillRule="evenodd"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        {children}
+      </ul>
+      <MobileMenuPortal />
+    </>
   );
 };
 
 export function NavBar() {
   return (
-    <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-neutral-800 fixed w-full z-20 top-0 left-0 border-b border-neutral-200 dark:border-neutral-600">
+    <nav className="w-full px-2 sm:px-4 py-1 relative z-20">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link href="/" className="flex items-center">
-          <Image
-            width={50}
-            height={50}
-            className="h-6 mr-3 sm:h-9"
-            src="juicelogo.svg"
-            alt="Juicebox logo"
-          />
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            HP
-          </span>
+          <LogoComponent width={50} height={50} />
         </Link>
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
-        >
-          <NavList items={NavData} />
-        </div>
+        <NavList>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/blog">Blog</NavItem>
+          <NavItem href="/about">About</NavItem>
+        </NavList>
       </div>
     </nav>
   );
 }
 
-type NavObj = {
-  name: string;
-  current?: boolean;
+interface BasicPropsI {
+  children?: React.ReactNode;
+}
+interface ItemPropsI extends BasicPropsI {
   href: string;
-};
+}
+
+interface LogoPropsI extends BasicPropsI {
+  width: number;
+  height: number;
+  justLogo?: boolean;
+}
+
+type OnClickType = (e: React.MouseEvent<HTMLElement>) => void;
