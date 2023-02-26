@@ -10,7 +10,7 @@ const LogoComponent = ({ width, height, justLogo = false }: LogoPropsI) => {
         width={width}
         height={height}
         className="h-6 mr-3 sm:h-9"
-        src="juicelogo.svg"
+        src="/juicelogo.svg"
         alt="Juicebox logo"
       />
       {!justLogo && (
@@ -43,7 +43,10 @@ const NavList = ({ children }: BasicPropsI) => {
   };
 
   const HamburgerMenu = () => (
-    <button className="md:hidden flex w-8 cursor-pointer" onClick={onClick}>
+    <button
+      className="md:hidden flex w-8 cursor-pointer mr-2"
+      onClick={onClick}
+    >
       <svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +114,7 @@ const NavList = ({ children }: BasicPropsI) => {
       <ul
         className={`${
           hidden ? "hidden" : ""
-        } absolute top-0 right-0 m-1 flex-col w-4/6  border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
+        } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
       >
         <div className="flex container md:hidden p-2 flex-wrap items-center justify-between mx-auto mb-3">
           <div className="flex items-center">
@@ -154,7 +157,7 @@ const NavList = ({ children }: BasicPropsI) => {
 export function NavBar() {
   return (
     <nav className="w-full px-2 sm:px-4 py-1 relative z-20">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+      <div className="container flex flex-wrap items-center justify-between mx-auto pt-6 sm:pt-0">
         <Link href="/" className="flex items-center">
           <LogoComponent width={50} height={50} />
         </Link>
