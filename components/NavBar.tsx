@@ -10,7 +10,7 @@ const LogoComponent = ({ width, height, justLogo = false }: LogoPropsI) => {
         width={width}
         height={height}
         className="h-6 mr-3 sm:h-9"
-        src="juicelogo.svg"
+        src="/juicelogo.svg"
         alt="Juicebox logo"
       />
       {!justLogo && (
