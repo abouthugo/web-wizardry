@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import showdown from "showdown";
 import { Title } from "../../../components/Typography";
 import styles from "./page.module.css";
@@ -18,7 +19,7 @@ async function getBlogPost(blogId: string) {
 
 export default async function BlogPost({ params }: any) {
   const blog = await getBlogPost(params.id);
-  if (!blog) return "404 not found";
+  if (!blog) notFound();
   return (
     <div className="max-w-3xl mx-auto">
       <Title>{blog.title}</Title>
