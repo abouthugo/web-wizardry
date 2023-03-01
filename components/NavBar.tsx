@@ -157,7 +157,7 @@ const NavList = ({ children }: BasicPropsI) => {
 export function NavBar() {
   return (
     <nav className="w-full px-2 sm:px-4 py-1 relative z-20">
-      <div className="container flex flex-wrap items-center justify-between mx-auto pt-6 sm:pt-0">
+      <div className="container flex flex-wrap items-center justify-between mx-auto pt-6 md:pt-0">
         <Link href="/" className="flex items-center">
           <LogoComponent width={50} height={50} />
         </Link>
