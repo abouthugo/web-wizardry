@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Write out .env.production file
+RUN npm run create-env
+
 # Copy the rest of the application files to the working directory
 COPY . .
 
