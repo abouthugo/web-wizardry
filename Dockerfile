@@ -16,6 +16,8 @@ RUN npm run create-env
 # Copy the rest of the application files to the working directory
 COPY . .
 
+RUN cat .env.production
+
 # Build the Next.js app
 RUN npm run build
 
