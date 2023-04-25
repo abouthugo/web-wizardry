@@ -164,6 +164,7 @@ export function NavBar() {
         <NavList>
           <NavItem href="/">Home</NavItem>
           <NavItem href="/blog">Blog</NavItem>
+          <NavItem href="/the-shop">The Shop</NavItem>
         </NavList>
       </div>
     </nav>
