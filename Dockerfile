@@ -13,15 +13,11 @@ RUN npm install
 # Copy the rest of the application files to the working directory
 COPY . .
 
+# Set environment variables based on build arguments
 ARG URL
 ARG KEY
-
-# Set environment variables based on build arguments
 ENV NEXT_PUBLIC_SUPABASE_URL=$URL
 ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$KEY
-
-RUN echo $NEXT_PUBLIC_SUPABASE_URL
-RUN echo $NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 # Build the Next.js app
 RUN npm run build
