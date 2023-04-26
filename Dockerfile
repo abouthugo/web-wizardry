@@ -10,13 +10,18 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Write out .env.production file
-RUN npm run create-env
-
 # Copy the rest of the application files to the working directory
 COPY . .
 
-RUN cat .env.production
+ARG URL
+ARG KEY
+
+# Set environment variables based on build arguments
+ENV NEXT_PUBLIC_SUPABASE_URL=$URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$KEY
+
+RUN echo $NEXT_PUBLIC_SUPABASE_URL
+RUN echo $NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 # Build the Next.js app
 RUN npm run build
