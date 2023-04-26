@@ -2,8 +2,12 @@ import Product from "../../components/Product";
 import { supabase } from "../../lib/supabaseClient";
 import { notFound } from "next/navigation";
 
+export const revalidate = 60;
 export default async function ProductPage() {
-  const { data: products } = await supabase.from("products").select();
+  const { data: products } = await supabase
+    .from("products")
+    .select()
+    .eq("claimed", false);
 
   if (!products) notFound();
 
