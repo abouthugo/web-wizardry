@@ -1,14 +1,5 @@
 import Image from "next/image";
 
-interface Logo {
-  id: string;
-  src: string;
-  alt: string;
-}
-
-interface LogoCarouselProps {
-  logos: Logo[];
-}
 const logos = [
   {
     alt: "vscode",
