@@ -11,6 +11,12 @@ const nextConfig = {
         port: "",
         pathname: "/wizard-cdn-core/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+        port: "",
+        pathname: "/gh/devicons/devicon/icons/**",
+      },
     ],
   },
 };

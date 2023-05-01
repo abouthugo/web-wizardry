@@ -2,6 +2,7 @@ import { Title } from "../components/Typography";
 import Image from "next/image";
 import CustomCard from "../components/CustomCard";
 import styles from "./page.module.css";
+import LogoCarousel from "../components/LogoCarousel";
 
 export default function Home() {
   return (
@@ -30,9 +31,10 @@ export default function Home() {
             />
           </div>
           <Title className="relative z-10">Hi friend! I&apos;m Hugo</Title>
-          <h2 className="h-2 text-neutral-400">
+          <h2 className="h-2 text-neutral-400 mb-10">
             I make computers go beep boop
           </h2>
+          <LogoCarousel />
         </div>
       </div>
       <div className={styles["gradient-glow-wrapper"]}>

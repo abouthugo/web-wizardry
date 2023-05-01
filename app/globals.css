@@ -113,3 +113,20 @@ a {
     color-scheme: dark;
   }
 }
+
+.carousel {
+  display: flex;
+  animation: carousel-animation 20s linear infinite;
+}
+
+@keyframes carousel-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
