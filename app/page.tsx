@@ -28,6 +28,7 @@ export default function Home() {
               width="232"
               height="232"
               className="rounded-full mb-5 z-10 relative"
+              priority
             />
           </div>
           <Title className="relative z-10">Hugo Perdomo</Title>
