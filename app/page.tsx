@@ -10,7 +10,7 @@ export default function Home() {
       <div className="min-h-screen flex mx-auto text-center items-center justify-center -mt-40 mb-24">
         <div className="p-8 flex-col">
           <div className="relative flex items-center justify-center mx-auto">
-            <div className="block absolute w-96 h-96 -right-[40px] md:right-20 z-0">
+            <div className="block absolute w-96 h-96 -right-[40px] md:right-2 z-0">
               <svg
                 id="10015.io"
                 viewBox="0 0 480 480"
@@ -23,21 +23,26 @@ export default function Home() {
               </svg>
             </div>
             <Image
-              src="https://storage.googleapis.com/wizard-cdn-core/Google%20PFP.png"
+              src="https://storage.googleapis.com/wizard-cdn-core/latest_2.jpg"
               alt="Profile picture"
               width="232"
               height="232"
               className="rounded-full mb-5 z-10 relative"
             />
           </div>
-          <Title className="relative z-10">Hi friend! I&apos;m Hugo</Title>
-          <h2 className="h-2 text-neutral-400 mb-10">
-            I make computers go beep boop
+          <Title className="relative z-10">Hugo Perdomo</Title>
+          <h2 className="h-2 text-neutral-400 mb-10 max-w-md">
+            Bridging bytes and brilliance
           </h2>
           <LogoCarousel />
+          <span className="text-neutral-700 block mt-8 relative">
+            swipe down
+            <a href="#" className="scroll-icon"></a>
+          </span>
         </div>
       </div>
-      <div className={styles["gradient-glow-wrapper"]}>
+      <div className="md:mb-60">
+        <div className={styles["gradient-glow-wrapper"]}></div>
         <div className="relative min-w-screen bg-gradient-to-b md:bg-gradient-to-r from-blue-800 p-2 rounded-lg pb-3">
           <Title className="-mt-10">Past Lives</Title>
           <div className="flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-4 gap-4">
