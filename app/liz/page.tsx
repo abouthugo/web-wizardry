@@ -24,16 +24,18 @@ export default function LizPage() {
           {d} days
         </p>
         <p className="text-center text-xl px-4 w-44 border-r-2 border-white">
-          {h} hours
+          {h} {h === 1 ? "hour" : "hours"}
         </p>
         <p className="text-center text-xl px-4 w-44 border-r-2 border-white">
-          {m} minutes
+          {m} {m === 1 ? "minute" : "minutes"}
         </p>
-        <p className="text-center text-xl px-4 w-44">{s} seconds</p>
+        <p className="text-center text-xl px-4 w-44">
+          {s} {s === 1 ? "second" : "seconds"}
+        </p>
       </div>
       <div className="flex justify-center mt-8">
         <Image
-          src="/images/blended-heart.png"
+          src="/images/blended-heart-alt.png"
           width={200}
           height={220}
           alt="blue heart"
