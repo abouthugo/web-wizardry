@@ -3,7 +3,6 @@ import "./output.css";
 import { Inter } from "@next/font/google";
 import { NavBar } from "../components/NavBar";
 import Div100vh from "react-div-100vh";
-import Footer from "../components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
   children,
@@ -20,8 +19,7 @@ export default function RootLayout({
           <header className="mb-10">
             <NavBar />
           </header>
-          <main className="px-4 min-h-screen">{children}</main>
-          <Footer />
+          {children}
         </Div100vh>
       </body>
     </html>

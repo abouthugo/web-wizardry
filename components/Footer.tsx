@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BuildMetric from "./BuildMetric";
 
 export default function Footer() {
   const GitHubLogo = () => (
@@ -46,12 +47,12 @@ export default function Footer() {
   );
 
   return (
-    <footer className="p-4 z-10">
-      <div className="sm:flex sm:items-center sm:justify-between">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2023 All Rights Reserved.
-        </span>
-        <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+    <footer className="py-5 md:py-20 px-2 md:px-4 mx-8 md:mx-10 z-10">
+      <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
+        <div className="text-sm text-gray-500 text-center dark:text-gray-400">
+          © 2023 Made with ❤️ by Hugo
+        </div>
+        <div className="flex mt-4 space-x-6 justify-center mt-0">
           <Link
             href="https://github.com/abouthugo"
             target="_blank"
@@ -79,6 +80,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+      <BuildMetric />
     </footer>
   );
 }
