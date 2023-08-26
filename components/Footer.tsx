@@ -47,7 +47,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className="py-5 md:py-20 px-2 md:px-4 mx-8 md:mx-10 z-10">
+    <footer className="container mx-auto py-2 sm:py-16 z-10">
       <div className="flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
         <div className="text-sm text-gray-500 text-center dark:text-gray-400">
           © 2023 Made with ❤️ by Hugo
