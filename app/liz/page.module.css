@@ -1,0 +1,161 @@
+.phantom-card {
+  @apply absolute left-0 top-0 transition-transform duration-100 w-[200] h-[220];
+}
+
+.phantom-card:nth-child(odd) {
+  animation: fade-left 3s linear infinite;
+}
+
+.phantom-card:nth-child(even) {
+  animation: fade-right 3s linear infinite;
+}
+
+/* This is how you stagger them */
+.phantom-card:is(:nth-child(3), :nth-child(4)) {
+  animation-delay: 750ms;
+  animation-name: fade-left-1;
+}
+
+.phantom-card:is(:nth-child(3)) {
+  animation-name: fade-left-1;
+}
+
+.phantom-card:is(:nth-child(4)) {
+  animation-name: fade-right-1;
+}
+
+.phantom-card:is(:nth-child(5), :nth-child(6)) {
+  animation-delay: 1500ms;
+}
+
+.phantom-card:is(:nth-child(5)) {
+  animation-name: fade-left-2;
+}
+
+.phantom-card:is(:nth-child(6)) {
+  animation-name: fade-right-2;
+}
+
+.phantom-card:is(:nth-child(7), :nth-child(8)) {
+  animation-delay: 2250ms;
+}
+
+.phantom-card:is(:nth-child(7)) {
+  animation-name: fade-left-3;
+}
+
+.phantom-card:is(:nth-child(8)) {
+  animation-name: fade-right-3;
+}
+
+@keyframes fade-left {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.6;
+    translate: -80%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-right {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.3;
+    translate: 80%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-left-1 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.4;
+    translate: -80% -80%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-right-1 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.6;
+    translate: 80% -80%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-left-2 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.7;
+    translate: -80% 20%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-right-2 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.5;
+    translate: 80% 20%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-left-3 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.8;
+    translate: -40% 80%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-right-3 {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+  }
+
+  to {
+    scale: 0.2;
+    translate: 40% 80%;
+    opacity: 0;
+  }
+}
