@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import styles from "./page.module.css";
 
 export default function LizPage() {
   const [timeArray, setTimeArray] = useState(timeCalculation());
@@ -33,13 +34,30 @@ export default function LizPage() {
           {s} {s === 1 ? "second" : "seconds"}
         </p>
       </div>
-      <div className="flex justify-center mt-8">
-        <Image
-          src="/images/blended-heart-alt.png"
-          width={200}
-          height={220}
-          alt="blue heart"
-        />
+      <div className="flex justify-center items-center mx-auto mt-12">
+        <div className="relative outline-none group">
+          <Image
+            className="relative z-10"
+            src="/images/blended-heart-alt.png"
+            width={200}
+            height={220}
+            alt="blue heart"
+          />
+          <div className="absolute left-0 top-0 h-full w-full opacity-0 transition-opacity duration-1500 group-hover:opacity-100">
+            {Array(8)
+              .fill(0)
+              .map((_, i) => (
+                <Image
+                  className={styles["phantom-card"]}
+                  key={`${i}-phantom-image`}
+                  src="/images/blended-heart.png"
+                  width={200}
+                  height={220}
+                  alt="blue heart"
+                />
+              ))}
+          </div>
+        </div>
       </div>
     </main>
   );
