@@ -156,7 +156,7 @@ export default function LizPage() {
         <Image
           fill
           src="/images/neon_bubbles_7.png"
-          className="object-cover object-top"
+          className="object-cover object-bottom animate-pulse"
           alt="bubbles"
         />
         <div
