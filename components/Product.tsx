@@ -13,6 +13,9 @@ type ProductProps = {
 };
 
 export default function Product({ product }: ProductProps) {
+  /**
+   * TODO: remove this logic and have the product model get a src
+   */
   const imagePath = `/images/${product.id}.png`;
   return (
     <div className="relative bg-neutral-800 w-72 h-72 mx-auto overflow-hidden rounded-md hover:bg-neutral-700 cursor-pointer">

@@ -14,7 +14,7 @@ export default function RootLayout({
       <head />
       <body>
         <Div100vh
-          className={`flex-col bg-neutral-900 ${inter.className} overflow-y-scroll overflow-x-hidden`}
+          className={`flex-col bg-black ${inter.className} overflow-y-scroll overflow-x-hidden`}
         >
           <header className="mb-10">
             <NavBar />
