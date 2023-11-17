@@ -5,6 +5,37 @@ import { useEffect, useState } from "react";
 import ImageSet from "../../components/ImageSet";
 import styles from "./page.module.css";
 
+const HeartsComponent = () => {
+  const heartWidth = 90;
+  const heartHeight = 100;
+  return (
+    <div className="flex justify-center items-center mx-auto mt-12 mb-20">
+      <div className="relative outline-none group">
+        <Image
+          className="relative z-10"
+          src="/images/blended-heart-alt.png"
+          width={heartWidth}
+          height={heartHeight}
+          alt="blue heart"
+        />
+        <div className="absolute left-0 top-0 h-full w-full duration-1500 ">
+          {Array(8)
+            .fill(0)
+            .map((_, i) => (
+              <Image
+                className={styles["phantom-card"]}
+                key={`${i}-phantom-image`}
+                src="/images/blended-heart.png"
+                width={heartWidth}
+                height={heartHeight}
+                alt="blue heart"
+              />
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 const months = [
   {
     title: "July",
@@ -64,6 +95,43 @@ const months = [
   },
 ];
 
+const NumberComponent = ({ moveTo }: { moveTo: number }) => {
+  const [row, setRow] = useState(0);
+  const x = 28;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRow(moveTo);
+    });
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [moveTo]);
+  return (
+    <div className="flex flex-col overflow-hidden gap-3 max-h-6 w-fit text-center">
+      <div
+        id="counter"
+        className="transiton ease-in-out"
+        style={{
+          transition: "translate 800ms cubic-bezier(.1,.67,0,1)",
+          translate: `0rem ${x * -row}px`,
+        }}
+      >
+        <div>0</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+      </div>
+    </div>
+  );
+};
+
 export default function LizPage() {
   const [timeArray, setTimeArray] = useState(timeCalculation());
   useEffect(() => {
@@ -80,42 +148,64 @@ export default function LizPage() {
 
   return (
     <main>
-      <div className="flex pt-8 mx-auto justify-center">
-        <p className="text-center text-xl px-4 w-44 border-r-2 border-white">
-          {d} days
-        </p>
-        <p className="text-center text-xl px-4 w-44 border-r-2 border-white">
-          {h} {h === 1 ? "hour" : "hours"}
-        </p>
-        <p className="text-center text-xl px-4 w-44 border-r-2 border-white">
-          {m} {m === 1 ? "minute" : "minutes"}
-        </p>
-        <p className="text-center text-xl px-4 w-44">
-          {s} {s === 1 ? "second" : "seconds"}
-        </p>
-      </div>
-      <div className="flex justify-center items-center mx-auto mt-12">
-        <div className="relative outline-none group">
-          <Image
-            className="relative z-10"
-            src="/images/blended-heart-alt.png"
-            width={200}
-            height={220}
-            alt="blue heart"
-          />
-          <div className="absolute left-0 top-0 h-full w-full opacity-0 transition-opacity duration-1500 group-hover:opacity-100">
-            {Array(8)
-              .fill(0)
-              .map((_, i) => (
-                <Image
-                  className={styles["phantom-card"]}
-                  key={`${i}-phantom-image`}
-                  src="/images/blended-heart.png"
-                  width={200}
-                  height={220}
-                  alt="blue heart"
-                />
-              ))}
+      <div
+        id="time-dash"
+        style={{ border: "1px solid rgb(255 255 255 / 10%)" }}
+        className="flex relative mx-auto max-w-sm rounded-xl overflow-hidden justify-center text-zinc-100"
+      >
+        <Image
+          fill
+          src="/images/neon_bubbles_7.png"
+          className="object-cover object-top"
+          alt="bubbles"
+        />
+        <div
+          style={{ border: "1px solid rgb(255 255 255 / 5%)" }}
+          className="flex backdrop-blur-lg w-full h-full py-2 bg-[rgba(92, 88, 88, 0.2)]"
+        >
+          <div
+            id="days"
+            className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
+          >
+            <div className="flex justify-center">
+              {d
+                .toString()
+                .split("")
+                .map((di, i) => (
+                  <NumberComponent
+                    key={`days-${di}-${i}index`}
+                    moveTo={Number(di)}
+                  />
+                ))}
+            </div>
+            days
+          </div>
+          <div
+            id="hours"
+            className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
+          >
+            <div className="flex justify-center">
+              <NumberComponent moveTo={h > 9 ? Number(h.toString()[0]) : 0} />
+              <NumberComponent moveTo={h > 9 ? Number(h.toString()[1]) : h} />
+            </div>
+            hours
+          </div>
+          <div
+            id="minutes"
+            className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
+          >
+            <div className="flex justify-center">
+              <NumberComponent moveTo={m > 9 ? Number(m.toString()[0]) : 0} />
+              <NumberComponent moveTo={m > 9 ? Number(m.toString()[1]) : m} />
+            </div>
+            minutes
+          </div>
+          <div id="seconds" className="text-center text-lg px-4 w-44">
+            <div className="flex justify-center">
+              <NumberComponent moveTo={s > 9 ? Number(s.toString()[0]) : 0} />
+              <NumberComponent moveTo={s > 9 ? Number(s.toString()[1]) : s} />
+            </div>
+            seconds
           </div>
         </div>
       </div>
@@ -131,6 +221,16 @@ export default function LizPage() {
           );
         })}
       </div>
+      <div className="mx-4 mb-4 py-2 sm:mx-auto sm:max-w-lg sm:px-0">
+        <p className="text-xl">
+          <span className="bg-gradient-to-r from-lime-500 via-cyan-500 to-sky-500 text-transparent bg-clip-text font-bold">
+            I love you
+          </span>{" "}
+          Elizabeth, happy 4 months!
+        </p>
+        <p className="text-xl">-Hugo</p>
+      </div>
+      <HeartsComponent />
     </main>
   );
 }
