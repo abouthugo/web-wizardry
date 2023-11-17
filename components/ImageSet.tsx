@@ -63,7 +63,7 @@ const Skeleton = () => {
       role="status"
       className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
     >
-      <div className="flex items-center justify-center w-full h-[65vh] rounded bg-neutral-800">
+      <div className="flex items-center justify-center w-full h-[500px] sm:h-[700px] rounded bg-neutral-800">
         <svg
           className="w-10 h-10 text-zinc-200"
           aria-hidden="true"
@@ -182,7 +182,10 @@ export default function ImageSet({
   };
 
   return (
-    <div className="w-full h-[75vh] sm:max-w-lg sm:mx-auto rounded-xl relative overflow-hidden">
+    <div
+      style={{ border: "1px solid rgb(255 255 255 / 15%)" }}
+      className="w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-xl relative overflow-hidden"
+    >
       {!hasCompletelyLoaded() && <Skeleton />}
       {srcList.map(renderMedia)}
       <div className="absolute bottom-0 left-0 w-full px-2 pb-2 bg-gradient-to-t from-[rgba(0,0,0,.45)] pt-8">
