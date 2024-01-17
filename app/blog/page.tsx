@@ -1,5 +1,5 @@
-import BlogPreview, { BlogData } from "../../components/BlogPostPreview";
-import { getAllPosts } from "../../lib/posts";
+import BlogPreview, { BlogData } from "@components/BlogPostPreview";
+import { getAllPosts } from "@lib/posts";
 
 export default async function Home() {
   const blogs = (await getAllPosts()).map((b) => b.data) as BlogData[];

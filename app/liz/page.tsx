@@ -1,8 +1,9 @@
 import Image from "next/image";
-import ImageSet from "../../components/ImageSet";
+import ImageSet from "@components/ImageSet";
 import styles from "./page.module.css";
-import Counter from "../../components/Counter";
+import Counter from "@components/Counter";
 import { Metadata } from "next";
+import { monthsBetween } from "@lib/anniversary-utils";
 
 export const metadata: Metadata = {
   title: "H&E",
@@ -133,7 +134,7 @@ export default function LizPage() {
           <span className="bg-gradient-to-r from-lime-500 via-cyan-500 to-sky-500 text-transparent bg-clip-text font-bold">
             I love you
           </span>{" "}
-          Elizabeth, happy 4 months!
+          Elizabeth, happy {monthsBetween()} months!
         </p>
         <p className="text-xl">-Hugo</p>
       </div>

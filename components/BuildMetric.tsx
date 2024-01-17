@@ -1,4 +1,4 @@
-import getBuildDate from "../lib/getBuildDate";
+import getBuildDate from "@lib/getBuildDate";
 
 export default function BuildMetric() {
   return (

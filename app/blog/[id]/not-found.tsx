@@ -1,4 +1,4 @@
-import { Title } from "../../../components/Typography";
+import { Title } from "@components/Typography";
 
 export default function NotFound() {
   return (

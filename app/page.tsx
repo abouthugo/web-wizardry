@@ -1,8 +1,8 @@
-import { Title } from "../components/Typography";
-import CustomCard from "../components/CustomCard";
+import { Title } from "@components/Typography";
+import CustomCard from "@components/CustomCard";
 import styles from "./page.module.css";
-import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
+import Footer from "@components/Footer";
+import HeroSection from "@components/HeroSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

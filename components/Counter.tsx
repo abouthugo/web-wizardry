@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { anniversaryDate } from "@lib/anniversary-utils";
 const NumberComponent = ({ moveTo }: { moveTo: number }) => {
   const [row, setRow] = useState(0);
   const x = 28;
@@ -40,7 +40,6 @@ const NumberComponent = ({ moveTo }: { moveTo: number }) => {
 };
 
 function timeCalculation() {
-  const anniversaryDate = new Date(2023, 6, 17, 15, 35);
   const timeDifference = new Date().getTime() - anniversaryDate.getTime();
   const MS = 1000;
   const S = 60;

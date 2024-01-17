@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Title } from "../../../components/Typography";
-import { getPostData } from "../../../lib/posts";
+import { Title } from "@components/Typography";
+import { getPostData } from "@lib/posts";
 import styles from "./page.module.css";
 
 export default async function BlogPost({ params }: any) {

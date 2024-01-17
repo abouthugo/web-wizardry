@@ -1,5 +1,5 @@
-import Product from "../../components/Product";
-import { supabase } from "../../lib/supabaseClient";
+import Product from "@components/Product";
+import { supabase } from "@lib/supabaseClient";
 import { notFound } from "next/navigation";
 
 export const revalidate = 60;
