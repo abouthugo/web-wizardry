@@ -3,6 +3,26 @@ import CustomCard from "../components/CustomCard";
 import styles from "./page.module.css";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hugo Perdomo",
+  description: "Software developer living in the Philly area",
+  openGraph: {
+    title: "Hugo Perdomo",
+    description: "Software developer living in the Philly area",
+    images: [
+      {
+        url: "https://storage.googleapis.com/wizard-cdn-core/web-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "preview-page",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (

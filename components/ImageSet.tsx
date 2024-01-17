@@ -5,7 +5,7 @@ import { SerifTitle } from "./Typography";
 
 const iconSize = 24;
 const iconColor = "#ffffff";
-const sliderSpeed = 1000;
+const sliderSpeed = 750;
 const debugPane = false;
 
 const PlayIcon = ({ fill = true }: { fill?: Boolean }) => {
@@ -143,7 +143,7 @@ export default function ImageSet({
     };
 
   const renderMedia = (src: string, i: number) => {
-    const commonClasses = `transition ease-in-out object-cover object-bottom ${
+    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
       src !== srcList[index] ? "opacity-0" : "opacity-100"
     }`;
 
@@ -184,12 +184,12 @@ export default function ImageSet({
   return (
     <div
       style={{ border: "1px solid rgb(255 255 255 / 15%)" }}
-      className="w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-xl relative overflow-hidden"
+      className="w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
     >
       {!hasCompletelyLoaded() && <Skeleton />}
       {srcList.map(renderMedia)}
       <div className="absolute bottom-0 left-0 w-full px-2 pb-2 bg-gradient-to-t from-[rgba(0,0,0,.45)] pt-8">
-        <SerifTitle>{title}</SerifTitle>
+        <SerifTitle className="text-5xl">{title}</SerifTitle>
         <p className="font-thin text-lg">
           {subtitle}
           {debugPane && `::${index}`}

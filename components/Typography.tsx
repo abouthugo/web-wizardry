@@ -28,7 +28,5 @@ export function SerifTitle({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <h1 className={`${noto.className} ${className} text-4xl`}>{children}</h1>
-  );
+  return <h1 className={`${noto.className} ${className}`}>{children}</h1>;
 }

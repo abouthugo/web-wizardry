@@ -11,7 +11,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="overflow-hidden">
-      <head />
       <body>
         <Div100vh
           className={`flex-col bg-black ${inter.className} overflow-y-scroll overflow-x-hidden`}
