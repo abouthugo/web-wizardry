@@ -1,5 +1,5 @@
-import { Inter } from "@next/font/google";
-import { Noto_Serif_Display } from "@next/font/google";
+import { Inter } from "next/font/google";
+import { Noto_Serif_Display } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 const noto = Noto_Serif_Display({

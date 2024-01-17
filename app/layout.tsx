@@ -1,6 +1,6 @@
 "use client";
 import "./output.css";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { NavBar } from "@components/NavBar";
 import Div100vh from "react-div-100vh";
 const inter = Inter({ subsets: ["latin"] });
