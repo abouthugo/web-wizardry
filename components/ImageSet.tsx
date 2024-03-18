@@ -184,7 +184,7 @@ export default function ImageSet({
   return (
     <div
       style={{ border: "1px solid rgb(255 255 255 / 15%)" }}
-      className="w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
+      className="text-white w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
     >
       {!hasCompletelyLoaded() && <Skeleton />}
       {srcList.map(renderMedia)}

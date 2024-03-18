@@ -32,7 +32,7 @@ export default function Home() {
         <section className="md:mb-8 static container mx-auto">
           <div className={styles["gradient-glow-wrapper"]}>
             <div className="relative min-w-screen bg-gradient-to-b md:bg-gradient-to-r from-blue-800 p-2 rounded-lg pb-3">
-              <Title className="-mt-10">Past Lives</Title>
+              <Title className="-mt-10 text-white">Past Lives</Title>
               <div className="flex-col space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
                 <CustomCard
                   data={{
