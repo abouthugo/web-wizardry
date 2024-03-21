@@ -1,8 +1,9 @@
-"use client";
 import "./output.css";
 import { Inter } from "next/font/google";
 import { NavBar } from "@components/NavBar";
-import Div100vh from "react-div-100vh";
+import styles from "./layout.module.css";
+import { cn } from "@/lib/utils";
+
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
   children,
@@ -10,16 +11,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="overflow-hidden">
+    <html lang="en">
       <body>
-        <Div100vh
-          className={`flex-col bg-black ${inter.className} overflow-y-scroll overflow-x-hidden`}
+        <div
+          className={cn(inter.className, styles.base)}
         >
-          <header className="mb-10">
+          <header className="">
             <NavBar />
           </header>
           {children}
-        </Div100vh>
+        </div>
       </body>
     </html>
   );
