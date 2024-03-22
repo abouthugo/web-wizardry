@@ -1,5 +1,5 @@
 import { useMediaQuery } from "@react-hookz/web";
-import Image, { ImageLoader } from "next/image";
+import Image, { type ImageLoader } from "next/image";
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
@@ -159,7 +159,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
         {logos.map((logo, index) => (
           <div
             className="w-36 min-w-fit h-fit flex flex-col items center justify center m-3 sm:m-5 rounded-lg group relative cursor-pointer hover:scale-110 transition-all duration-300 ease-spring"
-            key={index}
+            key={logo.src}
           >
             <div className="h-full w-full rounded-lg border border-[rgba(255,255,255,0.1619)] bg-[#101010] shadow-none shadow-gray-50 group-hover:border-blue-500 transition-all duration-300 ease-spring">
               <div className="flex flex-col justify-center items-center gap-3 p-6">

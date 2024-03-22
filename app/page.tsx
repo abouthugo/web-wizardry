@@ -80,9 +80,11 @@ const PastExperienceSection = () => (
 export default function Home() {
   return (
     <>
-      <main className="px-4">
-        <div className={styles.glowing_bg} />
-        <HeroSection />
+      <main>
+        <div className="flex items-center justify-center w-full min-w-0 py-0 md:py-14 md:mb-6">
+          <div className={styles.glowing_bg} />
+          <HeroSection />
+        </div>
         <PastExperienceSection />
       </main>
     </>
