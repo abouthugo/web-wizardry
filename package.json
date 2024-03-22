@@ -9,6 +9,7 @@
     "start": "next start",
     "create-env": "printenv > .env.production",
     "lint": "next lint",
+    "format": "npx @biomejs/biome format ./ --write",
     "prepare": "husky install"
   },
   "dependencies": {

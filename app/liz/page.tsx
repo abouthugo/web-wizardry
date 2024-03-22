@@ -2,7 +2,7 @@ import Image from "next/image";
 import ImageSet from "@components/ImageSet";
 import styles from "./page.module.css";
 import Counter from "@components/Counter";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import ClientMessage from "@components/ClientMessage";
 
 export const metadata: Metadata = {
@@ -120,14 +120,7 @@ export default function LizPage() {
       <Counter />
       <div className="flex flex-col gap-2 px-1 mx-auto mt-12 mb-4">
         {months.map(({ title, subTitle, srcList }) => {
-          return (
-            <ImageSet
-              key={`${title}-${subTitle}`}
-              title={title}
-              subtitle={subTitle}
-              srcList={srcList}
-            />
-          );
+          return <ImageSet key={`${title}-${subTitle}`} title={title} subtitle={subTitle} srcList={srcList} />;
         })}
       </div>
       <ClientMessage />

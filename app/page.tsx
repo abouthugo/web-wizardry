@@ -2,7 +2,7 @@ import { Title } from "@components/Typography";
 import CustomCard from "@components/CustomCard";
 import styles from "./page.module.css";
 import HeroSection from "@components/HeroSection";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hugo Perdomo",
@@ -75,7 +75,7 @@ const PastExperienceSection = () => (
       </div>
     </div>
   </section>
-)
+);
 
 export default function Home() {
   return (

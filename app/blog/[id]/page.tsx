@@ -10,18 +10,8 @@ export default async function BlogPost({ params }: any) {
   return (
     <div className="max-w-3xl mx-auto">
       <Title>{blog.data.title}</Title>
-      <Image
-        src={blog.data.image}
-        alt={blog.data.alt}
-        className="rounded-md mb-10"
-        width={700}
-        height={160}
-        priority
-      />
-      <div
-        className={styles.wrapper}
-        dangerouslySetInnerHTML={{ __html: blog.contentHTML }}
-      ></div>
+      <Image src={blog.data.image} alt={blog.data.alt} className="rounded-md mb-10" width={700} height={160} priority />
+      <div className={styles.wrapper} dangerouslySetInnerHTML={{ __html: blog.contentHTML }}></div>
     </div>
   );
 }

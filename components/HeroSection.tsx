@@ -18,13 +18,10 @@ export default function HeroSection() {
 
   const handleMarqueeMounted = () => {
     setMarqueeMounted(true);
-  }
+  };
 
   return (
-    <section
-      className="min-h-screen"
-      onClick={handleOnClick}
-    >
+    <section className="min-h-screen" onClick={handleOnClick}>
       <div className="flex flex-col justify-center w-full text-center">
         <div className="mt-20 xl:mt-60 w-72 flex items-center justify-center p-6 mx-auto">
           <Image
@@ -37,10 +34,13 @@ export default function HeroSection() {
           />
         </div>
         <Title className="z-10">Hugo Perdomo</Title>
-        <h2 className="text-center h-2 text-neutral-400 mb-10 max-w-md mx-auto">
-          Professional pixel painter
-        </h2>
-        <div className={classNames("container transition-all duration-700 ease-in", { 'opacity-0': !marqueeMounted, 'scale-25': !marqueeMounted })}>
+        <h2 className="text-center h-2 text-neutral-400 mb-10 max-w-md mx-auto">Professional pixel painter</h2>
+        <div
+          className={classNames("container transition-all duration-700 ease-in", {
+            "opacity-0": !marqueeMounted,
+            "scale-25": !marqueeMounted,
+          })}
+        >
           <LogoCarousel onMarqueeMounted={handleMarqueeMounted} />
         </div>
       </div>

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const imageLoader: ImageLoader = ({ src }) => {
-  return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons${src}`
-}
+  return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons${src}`;
+};
 
 const logos = [
   {
@@ -63,7 +63,7 @@ const logos = [
   {
     alt: "socket.io",
     src: "/socketio/socketio-original.svg",
-    invert: true
+    invert: true,
   },
   {
     alt: "graphql",
@@ -84,7 +84,7 @@ const logos = [
   {
     alt: "kafka",
     src: "/apachekafka/apachekafka-original.svg",
-    invert: true
+    invert: true,
   },
   {
     alt: "docker",
@@ -108,41 +108,39 @@ const logos = [
   },
 ];
 
-
 type Props = {
   onMarqueeMounted: () => void;
-}
+};
 const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
   const isMobile = useMediaQuery("only screen and (max-width: 768px)");
   const [_, setImageList] = useState<Boolean[]>(new Array(logos.length).fill(false));
   const [flags, setFlags] = useState({
     marqueeMounted: false,
     imagesReady: false,
-  })
+  });
 
   useEffect(() => {
-    if (flags.marqueeMounted && flags.imagesReady) onMarqueeMounted()
-  }, [flags, onMarqueeMounted])
+    if (flags.marqueeMounted && flags.imagesReady) onMarqueeMounted();
+  }, [flags, onMarqueeMounted]);
 
   const handleMarqueeMounted = () => setFlags({ ...flags, marqueeMounted: true });
 
   /**
    * NOTE: we wait for all the images to load with a callback function to avoid running into
    * stale state
-  */
+   */
   const handleImageLoaded = (i: number) => {
-    setImageList(prev => {
+    setImageList((prev) => {
       const newImageList = prev.map((isLoaded, index) => index === i || isLoaded);
       const isAllReady = newImageList.every(Boolean);
 
       if (isAllReady) {
-        setFlags(currentFlags => ({ ...currentFlags, imagesReady: true }));
+        setFlags((currentFlags) => ({ ...currentFlags, imagesReady: true }));
       }
 
       return newImageList;
     });
-
-  }
+  };
 
   return (
     <div className="w-full my-12">
@@ -164,9 +162,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
             key={index}
           >
             <div className="h-full w-full rounded-lg border border-[rgba(255,255,255,0.1619)] bg-[#101010] shadow-none shadow-gray-50 group-hover:border-blue-500 transition-all duration-300 ease-spring">
-              <div
-                className="flex flex-col justify-center items-center gap-3 p-6"
-              >
+              <div className="flex flex-col justify-center items-center gap-3 p-6">
                 <div className="h-8 md:h-10">
                   <Image
                     loader={imageLoader}

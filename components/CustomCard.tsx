@@ -1,4 +1,6 @@
-export default function CustomCard({ data }: {
+export default function CustomCard({
+  data,
+}: {
   data: {
     from: string;
     to: string;
@@ -6,7 +8,7 @@ export default function CustomCard({ data }: {
     company: string;
     description: string;
     tags: string[];
-  }
+  };
 }) {
   return (
     <div className="max-w-md overflow-hidden rounded-lg bg-semi-transparent shadow border border-solid border-semi-transparent">

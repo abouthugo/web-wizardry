@@ -6,18 +6,8 @@ import { useState } from "react";
 const LogoComponent = ({ width, height, justLogo = false }: LogoPropsI) => {
   return (
     <>
-      <Image
-        width={width}
-        height={height}
-        className="h-6 mr-3 sm:h-9"
-        src="/juicelogo.svg"
-        alt="Juicebox logo"
-      />
-      {!justLogo && (
-        <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
-          HP
-        </span>
-      )}
+      <Image width={width} height={height} className="h-6 mr-3 sm:h-9" src="/juicelogo.svg" alt="Juicebox logo" />
+      {!justLogo && <span className="self-center text-xl font-semibold whitespace-nowrap text-white">HP</span>}
     </>
   );
 };
@@ -25,10 +15,7 @@ const LogoComponent = ({ width, height, justLogo = false }: LogoPropsI) => {
 const NavItem = ({ children, href }: ItemPropsI) => {
   return (
     <li>
-      <Link
-        href={href}
-        className="block py-2 pl-3 pr-4 md:p-0 text-white hover:text-neutral-300"
-      >
+      <Link href={href} className="block py-2 pl-3 pr-4 md:p-0 text-white hover:text-neutral-300">
         {children}
       </Link>
     </li>
@@ -43,10 +30,7 @@ const NavList = ({ children }: BasicPropsI) => {
   };
 
   const HamburgerMenu = () => (
-    <button
-      className="md:hidden flex w-8 cursor-pointer mr-2"
-      onClick={onClick}
-    >
+    <button className="md:hidden flex w-8 cursor-pointer mr-2" onClick={onClick}>
       <svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -58,33 +42,9 @@ const NavList = ({ children }: BasicPropsI) => {
       >
         <title>Menu</title>
         <rect x="0" y="0" width="100%" height="100%" fillRule="nonzero" />
-        <line
-          x1="5"
-          y1="7"
-          x2="19"
-          y2="7"
-          stroke="#ffffff"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="5"
-          y1="17"
-          x2="19"
-          y2="17"
-          stroke="#ffffff"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="5"
-          y1="12"
-          x2="19"
-          y2="12"
-          stroke="#ffffff"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
+        <line x1="5" y1="7" x2="19" y2="7" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        <line x1="5" y1="17" x2="19" y2="17" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+        <line x1="5" y1="12" x2="19" y2="12" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
       </svg>
     </button>
   );
@@ -112,8 +72,9 @@ const NavList = ({ children }: BasicPropsI) => {
   const MobileMenuPortal = () => {
     return (
       <ul
-        className={`${hidden ? "hidden" : ""
-          } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
+        className={`${
+          hidden ? "hidden" : ""
+        } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
       >
         <div className="flex container md:hidden p-2 flex-wrap items-center justify-between mx-auto mb-3">
           <div className="flex items-center">

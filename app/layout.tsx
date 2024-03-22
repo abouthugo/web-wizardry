@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div
-          className={cn(inter.className, styles.base)}
-        >
+        <div className={cn(inter.className, styles.base)}>
           <header className="">
             <NavBar />
           </header>

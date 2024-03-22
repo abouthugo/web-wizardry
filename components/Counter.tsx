@@ -73,47 +73,30 @@ export default function Counter() {
       style={{ border: "1px solid rgb(255 255 255 / 10%)" }}
       className="flex relative mx-auto max-w-sm rounded-xl overflow-hidden justify-center text-zinc-100"
     >
-      <Image
-        fill
-        src="/images/neon_bubbles_7.png"
-        className="object-cover object-bottom animate-pulse"
-        alt="bubbles"
-      />
+      <Image fill src="/images/neon_bubbles_7.png" className="object-cover object-bottom animate-pulse" alt="bubbles" />
       <div
         style={{ border: "1px solid rgb(255 255 255 / 5%)" }}
         className="flex backdrop-blur-lg w-full h-full py-2 bg-[rgba(92, 88, 88, 0.2)]"
       >
-        <div
-          id="days"
-          className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
-        >
+        <div id="days" className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400">
           <div className="flex justify-center">
             {d
               .toString()
               .split("")
               .map((di, i) => (
-                <NumberComponent
-                  key={`days-${di}-${i}index`}
-                  moveTo={Number(di)}
-                />
+                <NumberComponent key={`days-${di}-${i}index`} moveTo={Number(di)} />
               ))}
           </div>
           days
         </div>
-        <div
-          id="hours"
-          className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
-        >
+        <div id="hours" className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400">
           <div className="flex justify-center">
             <NumberComponent moveTo={h > 9 ? Number(h.toString()[0]) : 0} />
             <NumberComponent moveTo={h > 9 ? Number(h.toString()[1]) : h} />
           </div>
           hours
         </div>
-        <div
-          id="minutes"
-          className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400"
-        >
+        <div id="minutes" className="text-center text-lg px-4 w-44 border-r-2 border-zinc-400">
           <div className="flex justify-center">
             <NumberComponent moveTo={m > 9 ? Number(m.toString()[0]) : 0} />
             <NumberComponent moveTo={m > 9 ? Number(m.toString()[1]) : m} />

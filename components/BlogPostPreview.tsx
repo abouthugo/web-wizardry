@@ -20,13 +20,7 @@ export default function BlogPreview({ blog }: { blog: BlogData }) {
             ))}
           </div>
           <div>
-            <Image
-              src={blog.image}
-              alt={blog.alt}
-              className="rounded-md"
-              width={100}
-              height={40}
-            />
+            <Image src={blog.image} alt={blog.alt} className="rounded-md" width={100} height={40} />
           </div>
         </div>
       </Link>

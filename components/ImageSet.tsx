@@ -108,11 +108,8 @@ export default function ImageSet({
 }) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [loadedGrid, setLoadedGrid] = useState<Boolean[]>(
-    new Array(srcList.length).fill(false)
-  );
-  const hasCompletelyLoaded = () =>
-    loadedGrid.reduce((prev, curr) => prev && curr);
+  const [loadedGrid, setLoadedGrid] = useState<Boolean[]>(new Array(srcList.length).fill(false));
+  const hasCompletelyLoaded = () => loadedGrid.reduce((prev, curr) => prev && curr);
 
   useEffect(() => {
     if (!playing) return;
@@ -135,16 +132,17 @@ export default function ImageSet({
   };
   const handleLoadingComplete =
     (index: number) =>
-      (v: Boolean, i: number): Boolean => {
-        if (i === index) {
-          return true;
-        }
-        return v;
-      };
+    (v: Boolean, i: number): Boolean => {
+      if (i === index) {
+        return true;
+      }
+      return v;
+    };
 
   const renderMedia = (src: string, i: number) => {
-    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${src !== srcList[index] ? "opacity-0" : "opacity-100"
-      }`;
+    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
+      src !== srcList[index] ? "opacity-0" : "opacity-100"
+    }`;
 
     if (isVideo(src)) {
       return (
@@ -155,11 +153,7 @@ export default function ImageSet({
           autoPlay
           loop
           muted
-          onLoadedData={() =>
-            setLoadedGrid((prevState) =>
-              prevState.map(handleLoadingComplete(i))
-            )
-          }
+          onLoadedData={() => setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))}
         />
       );
     } else {
@@ -170,11 +164,7 @@ export default function ImageSet({
           fill
           className={commonClasses}
           alt="some-picture"
-          onLoad={() =>
-            setLoadedGrid((prevState) =>
-              prevState.map(handleLoadingComplete(i))
-            )
-          }
+          onLoad={() => setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))}
         />
       );
     }
@@ -194,9 +184,7 @@ export default function ImageSet({
           {debugPane && `::${index}`}
         </p>
       </div>
-      {hasCompletelyLoaded() && (
-        <PlaybackControls onClick={togglePlay} playing={playing} />
-      )}
+      {hasCompletelyLoaded() && <PlaybackControls onClick={togglePlay} playing={playing} />}
     </div>
   );
 }

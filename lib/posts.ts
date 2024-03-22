@@ -10,9 +10,7 @@ export async function getPostData(id: string) {
   const fileContents = fs.readFileSync(fullPath, "utf-8");
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
+  const processedContent = await remark().use(html).process(matterResult.content);
   const contentHTML = processedContent.toString();
 
   return {
