@@ -1,29 +1,29 @@
-type Data = {
-  from: string;
-  to: string;
-  tagline: string;
-  description: string;
-  tags: string[];
-};
-
-interface CustomCardProps {
-  data: Data;
-}
-
-export default function CustomCard({ data }: CustomCardProps) {
+export default function CustomCard({ data }: {
+  data: {
+    from: string;
+    to: string;
+    role: string;
+    company: string;
+    description: string;
+    tags: string[];
+  }
+}) {
   return (
-    <div className="max-w-md overflow-hidden rounded-lg bg-blue-200/30 shadow border border-solid border-blue-100/25">
-      <div className="p-4">
-        <p className="mb-1 text-sm text-neutral-900">
-          <time>{data.from}</time> - <time>{data.to}</time>
-        </p>
-        <h3 className="text-xl font-medium text-black">{data.tagline}</h3>
-        <p className="mt-1 text-neutral-900">{data.description}</p>
-        <div className="mt-4 flex gap-2">
+    <div className="max-w-md overflow-hidden rounded-lg bg-semi-transparent shadow border border-solid border-semi-transparent">
+      <div className="grid box-border h-full w-md flex-wrap content-between">
+        <div className="p-4 text-white">
+          <p className="mb-1 text-sm text-neutral-400">
+            <time>{data.from}</time> - <time>{data.to}</time>
+          </p>
+          <p className="text-xl font-medium">{data.role}</p>
+          <p className="text-xl">{data.company}</p>
+          <p className="mt-1 text-neutral-300">{data.description}</p>
+        </div>
+        <div className="py-4 px-2 flex gap-x-2 gap-y-3 flex-wrap items-center">
           {data.tags.map((tag, index) => (
             <span
               key={index}
-              className="inline-flex items-center gap-1 rounded-full bg-zinc-900 px-2 py-1 text-xs font-semibold text-white"
+              className="px-3 py-1 inline-flex justify-center items-center rounded-full bg-semi-transparent border border-semi-transparent text-xs font-semibold text-neutral-400"
             >
               {tag}
             </span>

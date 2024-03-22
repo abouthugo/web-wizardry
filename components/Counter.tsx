@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { anniversaryDate } from "@lib/anniversary-utils";
+
 const NumberComponent = ({ moveTo }: { moveTo: number }) => {
   const [row, setRow] = useState(0);
   const x = 28;

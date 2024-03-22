@@ -135,17 +135,16 @@ export default function ImageSet({
   };
   const handleLoadingComplete =
     (index: number) =>
-    (v: Boolean, i: number): Boolean => {
-      if (i === index) {
-        return true;
-      }
-      return v;
-    };
+      (v: Boolean, i: number): Boolean => {
+        if (i === index) {
+          return true;
+        }
+        return v;
+      };
 
   const renderMedia = (src: string, i: number) => {
-    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
-      src !== srcList[index] ? "opacity-0" : "opacity-100"
-    }`;
+    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${src !== srcList[index] ? "opacity-0" : "opacity-100"
+      }`;
 
     if (isVideo(src)) {
       return (
@@ -171,7 +170,7 @@ export default function ImageSet({
           fill
           className={commonClasses}
           alt="some-picture"
-          onLoadingComplete={() =>
+          onLoad={() =>
             setLoadedGrid((prevState) =>
               prevState.map(handleLoadingComplete(i))
             )

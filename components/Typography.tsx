@@ -15,7 +15,7 @@ export function Title({
   className?: string;
 }) {
   return (
-    <h1 className={`text-6xl font-bold mb-6 ${inter.className} ${className}`}>
+    <h1 className={`text-white text-5xl md:text-6xl font-bold mb-6 ${inter.className} ${className}`}>
       {children}
     </h1>
   );

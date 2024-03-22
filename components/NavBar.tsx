@@ -112,9 +112,8 @@ const NavList = ({ children }: BasicPropsI) => {
   const MobileMenuPortal = () => {
     return (
       <ul
-        className={`${
-          hidden ? "hidden" : ""
-        } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
+        className={`${hidden ? "hidden" : ""
+          } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
       >
         <div className="flex container md:hidden p-2 flex-wrap items-center justify-between mx-auto mb-3">
           <div className="flex items-center">
@@ -156,8 +155,8 @@ const NavList = ({ children }: BasicPropsI) => {
 
 export function NavBar() {
   return (
-    <nav className="w-full px-2 sm:px-4 py-1 relative z-20">
-      <div className="container flex flex-wrap items-center justify-between mx-auto pt-6 md:pt-0">
+    <nav className="w-full px-2 sm:px-4 py-1">
+      <div className="md:container flex flex-wrap items-center justify-between mx-auto py-3 md:py-0">
         <Link href="/" className="flex items-center">
           <LogoComponent width={50} height={50} />
         </Link>

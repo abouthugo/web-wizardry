@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
 const HeartsComponent = () => {
   const heartWidth = 90;
   const heartHeight = 100;
@@ -115,7 +116,7 @@ const months = [
 
 export default function LizPage() {
   return (
-    <main>
+    <main className="pt-8">
       <Counter />
       <div className="flex flex-col gap-2 px-1 mx-auto mt-12 mb-4">
         {months.map(({ title, subTitle, srcList }) => {
@@ -129,8 +130,8 @@ export default function LizPage() {
           );
         })}
       </div>
-        <ClientMessage />
-        <HeartsComponent />
+      <ClientMessage />
+      <HeartsComponent />
     </main>
   );
 }
