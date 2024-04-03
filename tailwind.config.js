@@ -53,6 +53,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         "semi-transparent": "rgba(255, 255, 255, 0.0619)",
+        "off-transparent": "rgba(255, 255, 255, 0.619)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -79,6 +80,9 @@ module.exports = {
       },
       gridTemplateRows: {
         "main-layout": "auto 1fr auto",
+      },
+      spacing: {
+        30: "7.75rem",
       },
     },
   },
