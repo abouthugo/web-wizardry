@@ -4,6 +4,7 @@ import { DateTime } from "luxon";
 import Image from "next/image";
 import { type PropsWithChildren, useEffect, useState } from "react";
 import NumberCell from "./NumberCell";
+
 function timeCalculation() {
   const now = DateTime.now();
   const anniversary = DateTime.fromJSDate(anniversaryDate);
