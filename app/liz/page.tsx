@@ -117,7 +117,7 @@ const months = [
 
 export default function LizPage() {
   return (
-    <main className="pt-8">
+    <div className="pt-8">
       <Counter />
       <div className="flex flex-col gap-2 px-1 mx-auto mt-12 mb-4">
         {months.map(({ title, subTitle, srcList }) => {
@@ -127,6 +127,6 @@ export default function LizPage() {
       <ClientMessage />
       <HeartsComponent />
       <BigCountdown />
-    </main>
+    </div>
   );
 }
