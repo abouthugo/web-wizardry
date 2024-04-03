@@ -72,9 +72,8 @@ const NavList = ({ children }: BasicPropsI) => {
   const MobileMenuPortal = () => {
     return (
       <ul
-        className={`${
-          hidden ? "hidden" : ""
-        } absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
+        className={`${hidden ? "hidden" : ""
+          } z-10 absolute top-4 right-1 m-1 flex-col w-[calc(100%_-_16px)] border rounded-lg md:hidden md:space-x-8 md:mt-0 md:text-md md:font-medium md:border-0 bg-neutral-800 border-neutral-700`}
       >
         <div className="flex container md:hidden p-2 flex-wrap items-center justify-between mx-auto mb-3">
           <div className="flex items-center">
