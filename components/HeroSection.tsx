@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoCarousel from "./LogoCarousel";
 import { Title } from "./Typography";
+import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
   const router = useRouter();
@@ -22,9 +23,10 @@ export default function HeroSection() {
 
   return (
     <section
-      className="items-center justify-center gap-8 md:flex-col max-w-md md:max-w-screen-lg xl:max-w-screen-2xl py-14"
+      className="items-center relative justify-center gap-8 md:flex-col max-w-md md:max-w-screen-lg xl:max-w-screen-2xl py-14"
       onClick={handleOnClick}
     >
+      <div className={styles.glowing_bg} />
       <div className="flex flex-col justify-center w-full text-center">
         <div className="w-72 flex items-center justify-center p-6 mx-auto">
           <Image

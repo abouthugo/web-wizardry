@@ -1,0 +1,7 @@
+.glowing_bg {
+  @apply absolute h-full w-full -top-30 md:-top-24 left-0 bg-[url('/images/square-grid-mini.svg')] bg-center bg-no-repeat scale-90 md:scale-100 -z-10;
+}
+
+.glowing_bg::after {
+  @apply absolute -translate-y-20 inset-0 m-auto aspect-square w-[300px] lg:w-[180px] rounded-full blur-[120px] lg:blur-[80px] content-[''] bg-gray-500/40;
+}

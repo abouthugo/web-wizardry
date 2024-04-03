@@ -1,6 +1,5 @@
 import { Title } from "@components/Typography";
 import CustomCard from "@components/CustomCard";
-import styles from "./page.module.css";
 import HeroSection from "@components/HeroSection";
 import type { Metadata } from "next";
 
@@ -27,7 +26,7 @@ const PastExperienceSection = () => (
   <section className="md:container my-10 lg:my-16 static mx-auto">
     <div className="p-2 box-border rounded-lg pb-3">
       <Title className="text-white">Past Lives</Title>
-      <div className="flex-col space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-4 select-none">
+      <div className="flex-col space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <CustomCard
           data={{
             from: "Feb 2022",
@@ -82,7 +81,6 @@ export default function Home() {
     <>
       <main>
         <div className="flex items-center justify-center w-full min-w-0 py-0 md:py-14 md:mb-6">
-          <div className={styles.glowing_bg} />
           <HeroSection />
         </div>
         <PastExperienceSection />
