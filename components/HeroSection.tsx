@@ -21,7 +21,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="items-center justify-center gap-8 md:flex-col max-w-md md:max-w-screen-lg xl:max-w-screen-2xl py-14" onClick={handleOnClick}>
+    <section
+      className="items-center justify-center gap-8 md:flex-col max-w-md md:max-w-screen-lg xl:max-w-screen-2xl py-14"
+      onClick={handleOnClick}
+    >
       <div className="flex flex-col justify-center w-full text-center">
         <div className="w-72 flex items-center justify-center p-6 mx-auto">
           <Image

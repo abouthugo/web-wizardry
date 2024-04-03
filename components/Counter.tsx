@@ -13,20 +13,18 @@ function timeCalculation() {
 }
 
 type SecProps = {
-  id: string
-  last?: boolean
-}
+  id: string;
+  last?: boolean;
+};
 const Section = (props: PropsWithChildren<SecProps>) => {
-  const border = props.last ? '' : 'border-r-2 border-zinc-400';
+  const border = props.last ? "" : "border-r-2 border-zinc-400";
   return (
     <div id={props.id} className={`text-center text-lg px-4 w-44 ${border}`}>
-      <div className="flex justify-center">
-        {props.children}
-      </div>
+      <div className="flex justify-center">{props.children}</div>
       hours
     </div>
-  )
-}
+  );
+};
 export default function Counter() {
   const [timeArray, setTimeArray] = useState(timeCalculation());
   useEffect(() => {
@@ -41,7 +39,7 @@ export default function Counter() {
 
   const { days: d, hours: h, minutes: m, seconds: s } = timeArray;
   console.log(timeArray);
-  if (!d || !h || !m || !s) return <div>Nothing to see</div>
+  if (!d || !h || !m || !s) return <div>Nothing to see</div>;
   return (
     <div
       id="time-dash"
@@ -54,7 +52,8 @@ export default function Counter() {
         className="flex backdrop-blur-lg w-full h-full py-2 bg-[rgba(92, 88, 88, 0.2)]"
       >
         <Section id="days">
-          {d.toString()
+          {d
+            .toString()
             .split("")
             .map((di, i) => (
               <NumberCell key={`days-${di}-${i}index`} moveTo={Number(di)} />
@@ -68,7 +67,7 @@ export default function Counter() {
           <NumberCell moveTo={m > 9 ? Number(m.toString()[0]) : 0} />
           <NumberCell moveTo={m > 9 ? Number(m.toString()[1]) : m} />
         </Section>
-        <Section id="seconds" last >
+        <Section id="seconds" last>
           <NumberCell moveTo={s > 9 ? Number(s.toString()[0]) : 0} />
           <NumberCell moveTo={s > 9 ? Number(s.toString()[1]) : s} />
         </Section>
