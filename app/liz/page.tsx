@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Counter from "@components/Counter";
 import type { Metadata } from "next";
 import ClientMessage from "@components/ClientMessage";
+import BigCountdown from "@components/BigCountdown";
 
 export const metadata: Metadata = {
   title: "H&E",
@@ -125,6 +126,7 @@ export default function LizPage() {
       </div>
       <ClientMessage />
       <HeartsComponent />
+      <BigCountdown />
     </main>
   );
 }
