@@ -84,6 +84,9 @@ module.exports = {
       spacing: {
         30: "7.75rem",
       },
+      height: {
+        dvh: "100dvh",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
