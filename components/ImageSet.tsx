@@ -8,7 +8,7 @@ const iconColor = "#ffffff";
 const sliderSpeed = 750;
 const debugPane = false;
 
-const PlayIcon = ({ fill = true }: { fill?: Boolean }) => {
+const PlayIcon = ({ fill = true }: { fill?: boolean }) => {
   return (
     <svg
       width={`${iconSize}px`}
@@ -19,6 +19,7 @@ const PlayIcon = ({ fill = true }: { fill?: Boolean }) => {
       color={iconColor}
       strokeWidth="1.5"
     >
+      <title>PlayIcon</title>
       <path
         d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z"
         fill={fill ? iconColor : "none"}
@@ -26,12 +27,12 @@ const PlayIcon = ({ fill = true }: { fill?: Boolean }) => {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-      ></path>
+      />
     </svg>
   );
 };
 
-const StopIcon = ({ fill = true }: { fill?: Boolean }) => {
+const StopIcon = ({ fill = true }: { fill?: boolean }) => {
   return (
     <svg
       width={`${iconSize}px`}
@@ -42,18 +43,19 @@ const StopIcon = ({ fill = true }: { fill?: Boolean }) => {
       color={iconColor}
       strokeWidth="1.5"
     >
+      <title>StopIcon</title>
       <path
         d="M6 18.4V5.6C6 5.26863 6.26863 5 6.6 5H9.4C9.73137 5 10 5.26863 10 5.6V18.4C10 18.7314 9.73137 19 9.4 19H6.6C6.26863 19 6 18.7314 6 18.4Z"
         fill={fill ? iconColor : "none"}
         stroke={iconColor}
         strokeWidth="1.5"
-      ></path>
+      />
       <path
         d="M14 18.4V5.6C14 5.26863 14.2686 5 14.6 5H17.4C17.7314 5 18 5.26863 18 5.6V18.4C18 18.7314 17.7314 19 17.4 19H14.6C14.2686 19 14 18.7314 14 18.4Z"
         fill={fill ? iconColor : "none"}
         stroke={iconColor}
         strokeWidth="1.5"
-      ></path>
+      />
     </svg>
   );
 };
@@ -82,13 +84,14 @@ const PlaybackControls = ({
   playing,
 }: {
   onClick: () => void;
-  playing: Boolean;
+  playing: boolean;
 }) => {
   return (
     <div className="absolute bottom-0 right-0 p-2">
       <div
         className="bg-[rgba(255,255,255,.1)] py-3 px-3 rounded-full cursor-pointer backdrop-blur-sm backdrop-hue-rotate-90"
         onClick={onClick}
+        onKeyDown={onClick}
       >
         {playing ? <StopIcon /> : <PlayIcon />}
       </div>
@@ -108,8 +111,11 @@ export default function ImageSet({
 }) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [loadedGrid, setLoadedGrid] = useState<Boolean[]>(new Array(srcList.length).fill(false));
-  const hasCompletelyLoaded = () => loadedGrid.reduce((prev, curr) => prev && curr);
+  const [loadedGrid, setLoadedGrid] = useState<boolean[]>(
+    new Array(srcList.length).fill(false),
+  );
+  const hasCompletelyLoaded = () =>
+    loadedGrid.reduce((prev, curr) => prev && curr);
 
   useEffect(() => {
     if (!playing) return;
@@ -132,7 +138,7 @@ export default function ImageSet({
   };
   const handleLoadingComplete =
     (index: number) =>
-    (v: Boolean, i: number): Boolean => {
+    (v: boolean, i: number): boolean => {
       if (i === index) {
         return true;
       }
@@ -153,21 +159,27 @@ export default function ImageSet({
           autoPlay
           loop
           muted
-          onLoadedData={() => setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))}
-        />
-      );
-    } else {
-      return (
-        <Image
-          key={`${src}-${i}`}
-          src={src}
-          fill
-          className={commonClasses}
-          alt="some-picture"
-          onLoad={() => setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))}
+          onLoadedData={() =>
+            setLoadedGrid((prevState) =>
+              prevState.map(handleLoadingComplete(i)),
+            )
+          }
         />
       );
     }
+
+    return (
+      <Image
+        key={`${src}-${i}`}
+        src={src}
+        fill
+        className={commonClasses}
+        alt="some-picture"
+        onLoad={() =>
+          setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))
+        }
+      />
+    );
   };
 
   return (
@@ -184,7 +196,9 @@ export default function ImageSet({
           {debugPane && `::${index}`}
         </p>
       </div>
-      {hasCompletelyLoaded() && <PlaybackControls onClick={togglePlay} playing={playing} />}
+      {hasCompletelyLoaded() && (
+        <PlaybackControls onClick={togglePlay} playing={playing} />
+      )}
     </div>
   );
 }

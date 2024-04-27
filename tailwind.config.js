@@ -69,10 +69,40 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        appear: {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
+        grow: {
+          from: {
+            scale: "0.90",
+          },
+          to: {
+            scale: "1",
+          },
+        },
+        "slide-up": {
+          from: {
+            translateY: "5px",
+          },
+          to: {
+            translateY: "0px",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        showup:
+          "appear 1.8s ease-out 500ms forwards, grow 800ms ease-out 500ms forwards",
+        "showup-1s": "appear 1.8s ease-out 1s forwards",
+        "appear-up":
+          "appear 1s linear 1s forwards, slide-up 1s cubic-bezier(.24, .77, .48, .94) 1s forwards",
+        "fade-in-2s": "appear 2s ease-in-out",
       },
       transitionTimingFunction: {
         spring:

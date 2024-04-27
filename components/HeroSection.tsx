@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoCarousel from "./LogoCarousel";
 import { Title } from "./Typography";
-import styles from './HeroSection.module.css';
+import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
   const router = useRouter();
@@ -22,28 +22,27 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      className="items-center relative justify-center gap-8 md:flex-col max-w-md md:max-w-screen-lg xl:max-w-screen-2xl py-14"
-      onClick={handleOnClick}
-    >
-      <div className={styles.glowing_bg} />
-      <div className="flex flex-col justify-center w-full text-center">
+    <section className={styles.sectionWrapper} onClick={handleOnClick} onKeyUp={handleOnClick}>
+      <div className={styles.herozone}>
         <div className="w-72 flex items-center justify-center p-6 mx-auto">
-          <Image
-            src="https://storage.googleapis.com/wizard-cdn-core/latest_3.jpg"
-            alt="Profile picture"
-            width="232"
-            height="232"
-            className="rounded-full border border-semi-transparent"
-            priority
-          />
+          <div className="border border-semi-transparent rounded-full overflow-clip">
+            <Image
+              src="https://storage.googleapis.com/wizard-cdn-core/latest_3.jpg"
+              alt="Profile picture"
+              width="232"
+              height="232"
+              priority
+            />
+          </div>
         </div>
-        <Title className="z-10">Hugo Perdomo</Title>
-        <h2 className="text-center h-2 text-neutral-400 mb-10 max-w-md mx-auto">Professional pixel painter</h2>
+        <Title className="animate-showup opacity-0">Hugo Perdomo</Title>
+        <h2 className="text-center h-2 text-neutral-400 mb-10 max-w-md mx-auto opacity-0 animate-appear-up">
+          Professional pixel painter
+        </h2>
       </div>
       <div
-        className={classNames("container transition-all duration-700 ease-in min-h-[262px]", {
-          "opacity-0": !marqueeMounted,
+        className={classNames("container min-h-[262px] opacity-0", {
+          "animate-showup-1s": marqueeMounted,
         })}
       >
         <LogoCarousel onMarqueeMounted={handleMarqueeMounted} />

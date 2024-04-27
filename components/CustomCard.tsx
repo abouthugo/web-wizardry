@@ -7,13 +7,20 @@ type CustomCardProps = {
     description: string;
     tags: string[];
   };
-}
+};
 
-const Tag = (tag: string) => <span key={tag} className="px-3 py-1 inline-flex justify-center items-center rounded-full bg-semi-transparent border border-semi-transparent text-xs font-semibold text-neutral-400">{tag}</span>;
+const Tag = (tag: string) => (
+  <span
+    key={tag}
+    className="px-3 py-1 inline-flex justify-center items-center rounded-full bg-semi-transparent border border-semi-transparent text-xs font-semibold text-neutral-400"
+  >
+    {tag}
+  </span>
+);
 
 function CustomCard({ data }: CustomCardProps) {
   return (
-    <div className="max-w-md overflow-hidden rounded-lg bg-semi-transparent shadow border border-solid border-semi-transparent cursor-pointer hover:border-off-transparent transition-all ease-linear">
+    <div className="max-w-md overflow-hidden rounded-lg shadow border border-solid border-semi-transparent cursor-pointer hover:border-off-transparent transition-all ease-linear">
       <div className="grid box-border h-full w-md flex-wrap content-between">
         <div className="p-4 text-white">
           <p className="mb-1 text-sm text-neutral-400">

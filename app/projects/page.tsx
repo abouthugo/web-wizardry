@@ -25,7 +25,9 @@ export default function ProjectsHomePage() {
     <div className="w-full h-dvh">
       <div className="flex min-h-full justify-center items-center">
         <div className="grow">
-          <h1 className="text-white text-5xl font-bold text-center">No projects have been imported yet check back later</h1>
+          <h1 className="opacity-0 animate-showup text-white text-5xl font-bold text-center">
+            No projects have been imported yet check back later
+          </h1>
         </div>
       </div>
     </div>

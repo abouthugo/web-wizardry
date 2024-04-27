@@ -113,7 +113,9 @@ type Props = {
 };
 const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
   const isMobile = useMediaQuery("only screen and (max-width: 768px)");
-  const [_, setImageList] = useState<Boolean[]>(new Array(logos.length).fill(false));
+  const [_, setImageList] = useState<boolean[]>(
+    new Array(logos.length).fill(false),
+  );
   const [flags, setFlags] = useState({
     marqueeMounted: false,
     imagesReady: false,
@@ -123,7 +125,8 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
     if (flags.marqueeMounted && flags.imagesReady) onMarqueeMounted();
   }, [flags, onMarqueeMounted]);
 
-  const handleMarqueeMounted = () => setFlags({ ...flags, marqueeMounted: true });
+  const handleMarqueeMounted = () =>
+    setFlags({ ...flags, marqueeMounted: true });
 
   /**
    * NOTE: we wait for all the images to load with a callback function to avoid running into
@@ -131,7 +134,9 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
    */
   const handleImageLoaded = (i: number) => {
     setImageList((prev) => {
-      const newImageList = prev.map((isLoaded, index) => index === i || isLoaded);
+      const newImageList = prev.map(
+        (isLoaded, index) => index === i || isLoaded,
+      );
       const isAllReady = newImageList.every(Boolean);
 
       if (isAllReady) {
@@ -161,7 +166,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
             className="w-36 min-w-fit h-fit flex flex-col items center justify center m-3 sm:m-5 rounded-lg group relative cursor-pointer hover:scale-110 transition-all duration-300 ease-spring"
             key={logo.src}
           >
-            <div className="h-full w-full rounded-lg border border-[rgba(255,255,255,0.1619)] bg-[#101010] shadow-none shadow-gray-50 group-hover:border-blue-500 transition-all duration-300 ease-spring">
+            <div className="h-full w-full rounded-lg shadow-none shadow-gray-50 group-hover:border-blue-500 transition-all duration-300 ease-spring">
               <div className="flex flex-col justify-center items-center gap-3 p-6">
                 <div className="h-8 md:h-10">
                   <Image
