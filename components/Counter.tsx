@@ -8,7 +8,9 @@ import NumberCell from "./NumberCell";
 function timeCalculation() {
   const now = DateTime.now();
   const anniversary = DateTime.fromJSDate(anniversaryDate);
-  const td = now.diff(anniversary, ["days", "hours", "minutes", "seconds"]).toObject();
+  const td = now
+    .diff(anniversary, ["days", "hours", "minutes", "seconds"])
+    .toObject();
   return td;
 }
 
@@ -46,7 +48,12 @@ export default function Counter() {
       style={{ border: "1px solid rgb(255 255 255 / 10%)" }}
       className="flex relative mx-auto max-w-sm rounded-xl overflow-hidden justify-center text-zinc-100"
     >
-      <Image fill src="/images/neon_bubbles_7.png" className="object-cover object-bottom animate-pulse" alt="bubbles" />
+      <Image
+        fill
+        src="/images/neon_bubbles_7.png"
+        className="object-cover object-bottom animate-pulse"
+        alt="bubbles"
+      />
       <div
         style={{ border: "1px solid rgb(255 255 255 / 5%)" }}
         className="flex backdrop-blur-lg w-full h-full py-2 bg-[rgba(92, 88, 88, 0.2)]"

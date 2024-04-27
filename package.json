@@ -9,7 +9,14 @@
     "start": "next start",
     "create-env": "printenv > .env.production",
     "lint": "next lint",
-    "format": "npx @biomejs/biome format ./ --write",
+    "format": "npm run format:app && npm run format:components && npm run format:@",
+    "format:app": "npx @biomejs/biome format --write ./app",
+    "format:components": "npx @biomejs/biome format --write ./components",
+    "format:@": "npx @biomejs/biome format --write ./@",
+    "check": "npx @biomejs/biome check app components @",
+    "check:app": "npx @biomejs/biome check app",
+    "check:components": "npx @biomejs/biome check components",
+    "check:@": "npx @biomejs/biome check @",
     "prepare": "husky install"
   },
   "dependencies": {

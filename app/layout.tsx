@@ -1,9 +1,9 @@
-import "./output.css";
-import { Inter } from "next/font/google";
-import { NavBar } from "@components/NavBar";
-import styles from "./layout.module.css";
 import { cn } from "@/lib/utils";
 import Footer from "@components/Footer";
+import { NavBar } from "@components/NavBar";
+import { Inter } from "next/font/google";
+import styles from "./layout.module.css";
+import "./output.css";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
@@ -18,9 +18,7 @@ export default function RootLayout({
           <header className="">
             <NavBar />
           </header>
-          <main className="grow">
-            {children}
-          </main>
+          <main className="grow">{children}</main>
           <Footer />
         </div>
       </body>

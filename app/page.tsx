@@ -1,6 +1,6 @@
-import { Title } from "@components/Typography";
 import CustomCard from "@components/CustomCard";
 import HeroSection from "@components/HeroSection";
+import { Title } from "@components/Typography";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

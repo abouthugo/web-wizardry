@@ -1,4 +1,4 @@
-import BlogPreview, { BlogData } from "@components/BlogPostPreview";
+import BlogPreview, { type BlogData } from "@components/BlogPostPreview";
 import { getAllPosts } from "@lib/posts";
 
 export default async function Home() {

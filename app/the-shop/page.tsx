@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 
 export const revalidate = 60;
 export default async function ProductPage() {
-  const { data: products } = await supabase.from("products").select().eq("claimed", false);
+  const { data: products } = await supabase
+    .from("products")
+    .select()
+    .eq("claimed", false);
 
   if (!products) notFound();
 

@@ -14,7 +14,6 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 120,
-    "include": ["app/**/*.[ts|tsx]", "@/**/*.[ts|tsx]", "components/**/*.[ts|tsx]"]
+    "lineWidth": 80
   }
 }
