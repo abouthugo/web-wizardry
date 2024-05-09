@@ -1,24 +1,17 @@
 "use client";
-import { anniversaryDate } from "@lib/anniversary-utils";
-import { DateTime } from "luxon";
+import {
+  getTimeSinceAnniversary,
+  ensureTimeIsDefined,
+} from "@lib/anniversary-utils";
 import Image from "next/image";
 import { type PropsWithChildren, useEffect, useState } from "react";
 import NumberCell from "./NumberCell";
 
-function timeCalculation() {
-  const now = DateTime.now();
-  const anniversary = DateTime.fromJSDate(anniversaryDate);
-  const td = now
-    .diff(anniversary, ["days", "hours", "minutes", "seconds"])
-    .toObject();
-  return td;
-}
-
-type SecProps = {
+type SectionProps = {
   id: string;
   last?: boolean;
 };
-const Section = (props: PropsWithChildren<SecProps>) => {
+const Section = (props: PropsWithChildren<SectionProps>) => {
   const border = props.last ? "" : "border-r-2 border-zinc-400";
   return (
     <div id={props.id} className={`text-center text-lg px-4 w-44 ${border}`}>
@@ -27,11 +20,12 @@ const Section = (props: PropsWithChildren<SecProps>) => {
     </div>
   );
 };
+
 export default function Counter() {
-  const [timeArray, setTimeArray] = useState(timeCalculation());
+  const [timeArray, setTimeArray] = useState(getTimeSinceAnniversary());
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimeArray(timeCalculation());
+      setTimeArray(getTimeSinceAnniversary());
     }, 1000);
 
     return () => {
@@ -39,9 +33,8 @@ export default function Counter() {
     };
   }, []);
 
+  if (!ensureTimeIsDefined(timeArray)) return <div>Nothing to see</div>;
   const { days: d, hours: h, minutes: m, seconds: s } = timeArray;
-  console.log(timeArray);
-  if (!d || !h || !m || !s) return <div>Nothing to see</div>;
   return (
     <div
       id="time-dash"
@@ -62,8 +55,8 @@ export default function Counter() {
           {d
             .toString()
             .split("")
-            .map((di, i) => (
-              <NumberCell key={`days-${di}-${i}index`} moveTo={Number(di)} />
+            .map((di) => (
+              <NumberCell key={`days-${di}-index`} moveTo={Number(di)} />
             ))}
         </Section>
         <Section id="hours">

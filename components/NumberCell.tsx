@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 
 const NumberCell = ({ moveTo }: { moveTo: number }) => {
   const [row, setRow] = useState(0);
-  const x = 28;
+  const pixels = 28;
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setRow(moveTo);
@@ -12,14 +13,15 @@ const NumberCell = ({ moveTo }: { moveTo: number }) => {
       clearTimeout(timeout);
     };
   }, [moveTo]);
+
   return (
     <div className="flex flex-col overflow-hidden gap-3 max-h-6 w-fit text-center">
       <div
         id="counter"
-        className="transiton ease-in-out"
+        className="transition ease-in-out"
         style={{
-          transition: "translate 800ms cubic-bezier(.1,.67,0,1)",
-          translate: `0rem ${x * -row}px`,
+          transform: `translateY(${pixels * row * -1}px)`,
+          transition: "transform 800ms cubic-bezier(.1,.67,0,1)",
         }}
       >
         <div>0</div>
