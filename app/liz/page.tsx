@@ -1,6 +1,6 @@
 import BigCountdown from "@components/BigCountdown";
 import ClientMessage from "@components/ClientMessage";
-import Counter from "@components/Counter";
+import Counter from "./Counter";
 import ImageSet from "@components/ImageSet";
 import type { Metadata } from "next";
 import Image from "next/image";
