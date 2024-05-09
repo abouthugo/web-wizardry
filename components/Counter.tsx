@@ -23,7 +23,7 @@ const Section = (props: PropsWithChildren<SecProps>) => {
   return (
     <div id={props.id} className={`text-center text-lg px-4 w-44 ${border}`}>
       <div className="flex justify-center">{props.children}</div>
-      hours
+      {props.id}
     </div>
   );
 };
