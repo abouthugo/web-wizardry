@@ -22,7 +22,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section className={styles.sectionWrapper} onClick={handleOnClick} onKeyUp={handleOnClick}>
+    <section
+      className={styles.sectionWrapper}
+      onClick={handleOnClick}
+      onKeyUp={handleOnClick}
+    >
       <div className={styles.herozone}>
         <div className="w-72 flex items-center justify-center p-6 mx-auto">
           <div className="border border-semi-transparent rounded-full overflow-clip">
