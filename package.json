@@ -4,11 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev\" \"tailwindcss --input ./app/globals.css --output ./app/output.css --watch\"",
+    "dev:init": "npm run quit-nginx && npm run init-ssl && npm run init-nginx",
+    "predev": "npm run dev:init --hostname=arclocal.abouthugo.dev",
     "tw:watch": "tailwindcss --input ./app/globals.css --output ./app/output.css --watch",
     "build": "tailwindcss ./app/globals.css --output ./app/output.css && next build",
     "start": "next start",
+    "-------------------------------[utils]-------------------------------": "",
     "create-env": "printenv > .env.production",
     "lint": "next lint",
+    "prepare": "husky install",
+    "-------------------------------[ssl & nginx]-------------------------------": "",
+    "init-ssl": "./scripts/init_ssl.sh",
+    "init-nginx": "./nginx/init-nginx.sh",
+    "quit-nginx": "./nginx/quit-nginx.sh",
+    "-------------------------------[format]-------------------------------": "",
     "format": "npm run format:app && npm run format:components && npm run format:@",
     "format:app": "npx @biomejs/biome format --write ./app",
     "format:components": "npx @biomejs/biome format --write ./components",
@@ -16,8 +25,7 @@
     "check": "npx @biomejs/biome check app components @",
     "check:app": "npx @biomejs/biome check app",
     "check:components": "npx @biomejs/biome check components",
-    "check:@": "npx @biomejs/biome check @",
-    "prepare": "husky install"
+    "check:@": "npx @biomejs/biome check @"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
