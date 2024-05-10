@@ -37,3 +37,10 @@ next-env.d.ts
 
 # postcss
 output.css
+
+# SSL and NGINX
+ssl
+nginx/*.log
+nginx/*.pid
+nginx/https.conf
+nginx/ssl.conf
