@@ -132,7 +132,6 @@ export default function LizPage() {
         })}
       </div>
       <ClientMessage />
-      <HeartsComponent />
       <BigCountdown />
     </div>
   );
