@@ -61,6 +61,10 @@ const logos = [
     src: "/jest/jest-plain.svg",
   },
   {
+    alt: "playwright",
+    src: "/playwright/playwright-original.svg",
+  },
+  {
     alt: "socket.io",
     src: "/socketio/socketio-original.svg",
     invert: true,
@@ -163,7 +167,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
       >
         {logos.map((logo, index) => (
           <div
-            className="w-36 min-w-fit h-fit flex flex-col items center justify center m-3 sm:m-5 rounded-lg group relative cursor-pointer hover:scale-110 transition-all duration-300 ease-spring"
+            className="w-28 md:w-36 min-w-fit h-fit flex flex-col items center justify center md:m-5 group relative cursor-pointer hover:scale-110 transition-all duration-300 ease-spring"
             key={logo.src}
           >
             <div className="h-full w-full rounded-lg shadow-none shadow-gray-50 group-hover:border-blue-500 transition-all duration-300 ease-spring">
