@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import QueryProvider from "@/providers/query-provider";
 import Footer from "@components/Footer";
 import { NavBar } from "@components/NavBar";
 import { Inter } from "next/font/google";
@@ -13,15 +14,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-dvh">
-      <body className="flex min-h-full flex-col">
-        <div className={cn(inter.className, styles.base)}>
-          <header className="">
-            <NavBar />
-          </header>
-          <main className="grow">{children}</main>
-          <Footer />
-        </div>
-      </body>
+      <QueryProvider>
+        <body className="flex min-h-full flex-col">
+          <div className={cn(inter.className, styles.base)}>
+            <header className="">
+              <NavBar />
+            </header>
+            <main className="grow">{children}</main>
+            <Footer />
+          </div>
+        </body>
+      </QueryProvider>
     </html>
   );
 }
