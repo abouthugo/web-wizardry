@@ -55,8 +55,8 @@ export default function Counter() {
           {d
             .toString()
             .split("")
-            .map((di) => (
-              <NumberCell key={`days-${di}-index`} moveTo={Number(di)} />
+            .map((di, index) => (
+              <NumberCell key={`days-${di}-${index}`} moveTo={Number(di)} />
             ))}
         </Section>
         <Section id="hours">
