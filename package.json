@@ -17,15 +17,7 @@
     "init-ssl": "./scripts/init_ssl.sh",
     "init-nginx": "./nginx/init-nginx.sh",
     "quit-nginx": "./nginx/quit-nginx.sh",
-    "-------------------------------[format]-------------------------------": "",
-    "format": "npm run format:app && npm run format:components && npm run format:@",
-    "format:app": "npx @biomejs/biome format --write ./app",
-    "format:components": "npx @biomejs/biome format --write ./components",
-    "format:@": "npx @biomejs/biome format --write ./@",
-    "check": "npx @biomejs/biome check app components @",
-    "check:app": "npx @biomejs/biome check app",
-    "check:components": "npx @biomejs/biome check components",
-    "check:@": "npx @biomejs/biome check @"
+    "-------------------------------[format]-------------------------------": ""
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
@@ -56,7 +48,6 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.2",
     "@tanstack/eslint-plugin-query": "^5.35.6",
     "@types/luxon": "^3.4.2",
     "@types/showdown": "^2.0.0",
