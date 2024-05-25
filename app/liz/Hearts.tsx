@@ -1,9 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from 'next/image'
+
+import styles from './page.module.css'
 
 const Hearts = () => {
-  const heartWidth = 90;
-  const heartHeight = 100;
+  const heartWidth = 90
+  const heartHeight = 100
   return (
     <div className="flex justify-center items-center mx-auto mt-12 mb-20">
       <div className="relative outline-none group">
@@ -19,7 +20,7 @@ const Hearts = () => {
             .fill(0)
             .map((_, i) => (
               <Image
-                className={styles["phantom-card"]}
+                className={styles['phantom-card']}
                 key={`${i}-phantom-image`}
                 src="/images/blended-heart.png"
                 width={heartWidth}
@@ -30,7 +31,7 @@ const Hearts = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hearts;
+export default Hearts

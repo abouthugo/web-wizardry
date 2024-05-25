@@ -5,5 +5,5 @@ export default function Head() {
       <meta name="description" content="Projects will be imported soon..." />
       <title>Projects</title>
     </>
-  );
+  )
 }

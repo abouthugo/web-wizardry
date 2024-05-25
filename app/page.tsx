@@ -1,25 +1,27 @@
-import HeroSection from "@components/HeroSection";
-import type { Metadata } from "next";
-import PastExperienceSection from "./PastExperience";
+import type { Metadata } from 'next'
+
+import HeroSection from '@components/HeroSection'
+
+import PastExperienceSection from './PastExperience'
 
 export const metadata: Metadata = {
-  title: "Hugo Perdomo",
-  description: "Software developer living in the Philly area",
+  title: 'Hugo Perdomo',
+  description: 'Software developer living in the Philly area',
   openGraph: {
-    title: "Hugo Perdomo",
-    description: "Software developer living in the Philly area",
+    title: 'Hugo Perdomo',
+    description: 'Software developer living in the Philly area',
     images: [
       {
-        url: "https://storage.googleapis.com/wizard-cdn-core/web-preview.jpg",
+        url: 'https://storage.googleapis.com/wizard-cdn-core/web-preview.jpg',
         width: 1200,
         height: 630,
-        alt: "preview-page",
-      },
+        alt: 'preview-page'
+      }
     ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+    locale: 'en_US',
+    type: 'website'
+  }
+}
 
 export default function Home() {
   return (
@@ -29,5 +31,5 @@ export default function Home() {
       </div>
       <PastExperienceSection />
     </>
-  );
+  )
 }

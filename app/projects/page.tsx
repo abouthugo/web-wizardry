@@ -1,25 +1,25 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Hugo Perdomo | Projects",
+  title: 'Hugo Perdomo | Projects',
   // TODO: add a project description
-  description: "",
+  description: '',
   openGraph: {
-    title: "Hugo Perdomo | Projects",
-    description: "",
+    title: 'Hugo Perdomo | Projects',
+    description: '',
     images: [
       {
         // TODO: add preview image
-        url: "",
+        url: '',
         width: 1200,
         height: 630,
-        alt: "preview-page",
-      },
+        alt: 'preview-page'
+      }
     ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+    locale: 'en_US',
+    type: 'website'
+  }
+}
 export default function ProjectsHomePage() {
   return (
     <div className="w-full h-dvh">
@@ -31,5 +31,5 @@ export default function ProjectsHomePage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

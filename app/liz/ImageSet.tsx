@@ -1,64 +1,64 @@
-"use client";
-import { SerifTitle } from "@components/Typography";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import CardPlayerControls from "./CardPlayerControls";
-import CardSkeleton from "./CardSkeleton";
+'use client'
 
-const sliderSpeed = 750;
-const debugPane = false;
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-const isVideo = (src: string) => /\.(mp4|webm)$/.test(src);
+import { SerifTitle } from '@components/Typography'
+
+import CardPlayerControls from './CardPlayerControls'
+import CardSkeleton from './CardSkeleton'
+
+const sliderSpeed = 750
+const debugPane = false
+
+const isVideo = (src: string) => /\.(mp4|webm)$/.test(src)
 
 export default function ImageSet({
-  title = "July",
-  subtitle = "2023",
-  srcList = ["/first.jpeg"],
+  title = 'July',
+  subtitle = '2023',
+  srcList = ['/first.jpeg']
 }: {
-  title?: string;
-  subtitle?: string;
-  srcList?: string[];
+  title?: string
+  subtitle?: string
+  srcList?: string[]
 }) {
-  const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(false);
-  const [loadedGrid, setLoadedGrid] = useState<boolean[]>(
-    new Array(srcList.length).fill(false),
-  );
-  const hasCompletelyLoaded = () =>
-    loadedGrid.reduce((prev, curr) => prev && curr);
+  const [index, setIndex] = useState(0)
+  const [playing, setPlaying] = useState(false)
+  const [loadedGrid, setLoadedGrid] = useState<boolean[]>(new Array(srcList.length).fill(false))
+  const hasCompletelyLoaded = () => loadedGrid.reduce((prev, curr) => prev && curr)
 
   useEffect(() => {
-    if (!playing) return;
-    if (!loadedGrid.reduce((prev, curr) => prev && curr)) return;
+    if (!playing) return
+    if (!loadedGrid.reduce((prev, curr) => prev && curr)) return
     const timer = setInterval(() => {
       if (index < srcList.length - 1) {
-        setIndex((state) => state + 1);
+        setIndex(state => state + 1)
       } else {
-        setIndex(0);
+        setIndex(0)
       }
-    }, sliderSpeed);
+    }, sliderSpeed)
 
     return () => {
-      clearInterval(timer);
-    };
-  }, [index, srcList, playing, loadedGrid]);
+      clearInterval(timer)
+    }
+  }, [index, srcList, playing, loadedGrid])
 
   const togglePlay = () => {
-    setPlaying(!playing);
-  };
+    setPlaying(!playing)
+  }
   const handleLoadingComplete =
     (index: number) =>
     (v: boolean, i: number): boolean => {
       if (i === index) {
-        return true;
+        return true
       }
-      return v;
-    };
+      return v
+    }
 
   const renderMedia = (src: string, i: number) => {
     const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
-      src !== srcList[index] ? "opacity-0" : "opacity-100"
-    }`;
+      src !== srcList[index] ? 'opacity-0' : 'opacity-100'
+    }`
 
     if (isVideo(src)) {
       return (
@@ -69,13 +69,9 @@ export default function ImageSet({
           autoPlay
           loop
           muted
-          onLoadedData={() =>
-            setLoadedGrid((prevState) =>
-              prevState.map(handleLoadingComplete(i)),
-            )
-          }
+          onLoadedData={() => setLoadedGrid(prevState => prevState.map(handleLoadingComplete(i)))}
         />
-      );
+      )
     }
 
     return (
@@ -86,16 +82,14 @@ export default function ImageSet({
         sizes="(max-width: 768) 100vw;"
         className={commonClasses}
         alt="some-picture"
-        onLoad={() =>
-          setLoadedGrid((prevState) => prevState.map(handleLoadingComplete(i)))
-        }
+        onLoad={() => setLoadedGrid(prevState => prevState.map(handleLoadingComplete(i)))}
       />
-    );
-  };
+    )
+  }
 
   return (
     <div
-      style={{ border: "1px solid rgb(255 255 255 / 15%)" }}
+      style={{ border: '1px solid rgb(255 255 255 / 15%)' }}
       className="text-white w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
     >
       {!hasCompletelyLoaded() && <CardSkeleton />}
@@ -107,9 +101,7 @@ export default function ImageSet({
           {debugPane && `::${index}`}
         </p>
       </div>
-      {hasCompletelyLoaded() && (
-        <CardPlayerControls onClick={togglePlay} playing={playing} />
-      )}
+      {hasCompletelyLoaded() && <CardPlayerControls onClick={togglePlay} playing={playing} />}
     </div>
-  );
+  )
 }

@@ -19,15 +19,9 @@
 
 .herozone::before {
   @apply content-[""] h-full w-full absolute -top-10 lg:-top-4 -z-10;
-  background: linear-gradient(
-        90deg,
-        var(--line) 1px,
-        transparent 1px var(--size)
-      )
-      0 -5vmin / var(--size) var(--size),
-    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(
-        --size
-      ) var(--size);
+  background:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size);
   mask: radial-gradient(
     circle,
     rgba(255, 255, 255, 0.8) 10%,

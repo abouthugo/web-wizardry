@@ -1,17 +1,16 @@
-import { cn } from "@/lib/utils";
-import QueryProvider from "@/providers/query-provider";
-import Footer from "@components/Footer";
-import { NavBar } from "@components/NavBar";
-import { Inter } from "next/font/google";
-import styles from "./layout.module.css";
-import "./output.css";
+import './output.css'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ["latin"] });
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { cn } from '@/lib/utils'
+import QueryProvider from '@/providers/query-provider'
+
+import Footer from '@components/Footer'
+import { NavBar } from '@components/NavBar'
+
+import styles from './layout.module.css'
+
+const inter = Inter({ subsets: ['latin'] })
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-dvh">
       <QueryProvider>
@@ -26,5 +25,5 @@ export default function RootLayout({
         </body>
       </QueryProvider>
     </html>
-  );
+  )
 }

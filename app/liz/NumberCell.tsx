@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react'
 
 const NumberCell = ({ moveTo }: { moveTo: number }) => {
-  const [row, setRow] = useState(0);
-  const pixels = 28;
+  const [row, setRow] = useState(0)
+  const pixels = 28
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setRow(moveTo);
-    });
+      setRow(moveTo)
+    })
 
     return () => {
-      clearTimeout(timeout);
-    };
-  }, [moveTo]);
+      clearTimeout(timeout)
+    }
+  }, [moveTo])
 
   return (
     <div className="flex flex-col overflow-hidden gap-3 max-h-6 w-fit text-center">
@@ -21,7 +21,7 @@ const NumberCell = ({ moveTo }: { moveTo: number }) => {
         className="transition ease-in-out"
         style={{
           transform: `translateY(${pixels * row * -1}px)`,
-          transition: "transform 800ms cubic-bezier(.1,.67,0,1)",
+          transition: 'transform 800ms cubic-bezier(.1,.67,0,1)'
         }}
       >
         <div>0</div>
@@ -36,7 +36,7 @@ const NumberCell = ({ moveTo }: { moveTo: number }) => {
         <div>9</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NumberCell;
+export default NumberCell

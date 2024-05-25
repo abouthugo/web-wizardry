@@ -3,5 +3,5 @@ export default function UploadPage() {
     <div>
       <h1>Hello world</h1>
     </div>
-  );
+  )
 }

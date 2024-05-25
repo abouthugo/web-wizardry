@@ -1,10 +1,7 @@
 .container {
   --bg-opacity: 0.5;
-  background: linear-gradient(
-      rgba(0, 0, 0, var(--bg-opacity)),
-      rgba(0, 0, 0, var(--bg-opacity))
-    ),
-    url(https://storage.googleapis.com/wizard-cdn-core/Engagement-23_downscaled.jpg)
-      center center no-repeat;
+  background:
+    linear-gradient(rgba(0, 0, 0, var(--bg-opacity)), rgba(0, 0, 0, var(--bg-opacity))),
+    url(https://storage.googleapis.com/wizard-cdn-core/Engagement-23_downscaled.jpg) center center no-repeat;
   background-size: cover;
 }

@@ -16,7 +16,7 @@ const CardSkeleton = () => {
         </svg>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardSkeleton;
+export default CardSkeleton

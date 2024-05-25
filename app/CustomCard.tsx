@@ -1,13 +1,13 @@
 type CustomCardProps = {
   data: {
-    from: string;
-    to: string;
-    role: string;
-    company: string;
-    description: string;
-    tags: string[];
-  };
-};
+    from: string
+    to: string
+    role: string
+    company: string
+    description: string
+    tags: string[]
+  }
+}
 
 const Tag = (tag: string) => (
   <span
@@ -16,7 +16,7 @@ const Tag = (tag: string) => (
   >
     {tag}
   </span>
-);
+)
 
 function CustomCard({ data }: CustomCardProps) {
   return (
@@ -30,12 +30,10 @@ function CustomCard({ data }: CustomCardProps) {
           <p className="text-xl">{data.company}</p>
           <p className="mt-1 text-neutral-300">{data.description}</p>
         </div>
-        <div className="py-4 px-2 flex gap-x-2 gap-y-3 flex-wrap items-center">
-          {data.tags.map(Tag)}
-        </div>
+        <div className="py-4 px-2 flex gap-x-2 gap-y-3 flex-wrap items-center">{data.tags.map(Tag)}</div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CustomCard;
+export default CustomCard
