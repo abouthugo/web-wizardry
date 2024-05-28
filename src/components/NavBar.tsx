@@ -85,7 +85,6 @@ const NavList = () => {
     const renderCount = useRef(0)
     useEffect(() => {
       renderCount.current = renderCount.current + 1
-      console.log('Render count:', renderCount.current)
     })
 
     const classes = [

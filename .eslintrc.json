@@ -1,3 +1,6 @@
 {
-  "extends": ["next", "plugin:@tanstack/eslint-plugin-query/recommended", "prettier"]
+  "extends": ["next", "plugin:@tanstack/eslint-plugin-query/recommended", "prettier"],
+  "rules": {
+    "no-console": ["error"]
+  }
 }
