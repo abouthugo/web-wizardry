@@ -41,7 +41,7 @@ export default function CardPlayer() {
   return (
     <Container>
       {data.months.map(({ title, subTitle, srcList }) => {
-        return <ImageSet key={`${title}-${subTitle}`} title={title} subtitle={subTitle} srcList={srcList} />
+        return <ImageSet key={`${title}-${subTitle}`} title={title} subTitle={subTitle} srcList={srcList} />
       })}
     </Container>
   )

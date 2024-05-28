@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
+import { usePreloadImages } from '@/hooks/use-preload-images'
+
 import { SerifTitle } from '@components/Typography'
 
 import CardPlayerControls from './CardPlayerControls'
@@ -13,23 +15,26 @@ const debugPane = false
 
 const isVideo = (src: string) => /\.(mp4|webm)$/.test(src)
 
-export default function ImageSet({
-  title = 'July',
-  subtitle = '2023',
-  srcList = ['/first.jpeg']
-}: {
-  title?: string
-  subtitle?: string
-  srcList?: string[]
-}) {
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div
+    style={{ border: '1px solid rgb(255 255 255 / 15%)' }}
+    className="text-white w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
+  >
+    {children}
+  </div>
+)
+export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
+  const { data, error, isLoading } = usePreloadImages({ srcList, title, subTitle })
   const [index, setIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
-  const [loadedGrid, setLoadedGrid] = useState<boolean[]>(new Array(srcList.length).fill(false))
-  const hasCompletelyLoaded = () => loadedGrid.reduce((prev, curr) => prev && curr)
+
+  const togglePlay = () => {
+    setPlaying(!playing)
+  }
 
   useEffect(() => {
     if (!playing) return
-    if (!loadedGrid.reduce((prev, curr) => prev && curr)) return
+    if (isLoading) return
     const timer = setInterval(() => {
       if (index < srcList.length - 1) {
         setIndex(state => state + 1)
@@ -41,19 +46,23 @@ export default function ImageSet({
     return () => {
       clearInterval(timer)
     }
-  }, [index, srcList, playing, loadedGrid])
+  }, [index, srcList, playing, isLoading])
 
-  const togglePlay = () => {
-    setPlaying(!playing)
+  if (isLoading) {
+    return (
+      <Container>
+        <CardSkeleton />
+      </Container>
+    )
   }
-  const handleLoadingComplete =
-    (index: number) =>
-    (v: boolean, i: number): boolean => {
-      if (i === index) {
-        return true
-      }
-      return v
-    }
+
+  if (error) {
+    return (
+      <Container>
+        <h1>{error.message}</h1>
+      </Container>
+    )
+  }
 
   const renderMedia = (src: string, i: number) => {
     const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
@@ -61,17 +70,7 @@ export default function ImageSet({
     }`
 
     if (isVideo(src)) {
-      return (
-        <video
-          key={`${src}-${i}`}
-          src={src}
-          className={commonClasses}
-          autoPlay
-          loop
-          muted
-          onLoadedData={() => setLoadedGrid(prevState => prevState.map(handleLoadingComplete(i)))}
-        />
-      )
+      return <video key={`${src}-${i}`} src={src} className={commonClasses} autoPlay loop muted />
     }
 
     return (
@@ -82,26 +81,21 @@ export default function ImageSet({
         sizes="(max-width: 768) 100vw;"
         className={commonClasses}
         alt="some-picture"
-        onLoad={() => setLoadedGrid(prevState => prevState.map(handleLoadingComplete(i)))}
       />
     )
   }
 
   return (
-    <div
-      style={{ border: '1px solid rgb(255 255 255 / 15%)' }}
-      className="text-white w-full h-[500px] sm:h-[700px] sm:max-w-lg sm:mx-auto rounded-3xl relative overflow-hidden"
-    >
-      {!hasCompletelyLoaded() && <CardSkeleton />}
-      {srcList.map(renderMedia)}
+    <Container>
+      {data?.map(renderMedia)}
       <div className="absolute bottom-0 left-0 w-full px-2 pb-2 bg-gradient-to-t from-[rgba(0,0,0,.45)] pt-8">
         <SerifTitle className="text-5xl">{title}</SerifTitle>
         <p className="font-thin text-lg">
-          {subtitle}
+          {subTitle}
           {debugPane && `::${index}`}
         </p>
       </div>
-      {hasCompletelyLoaded() && <CardPlayerControls onClick={togglePlay} playing={playing} />}
-    </div>
+      <CardPlayerControls onClick={togglePlay} playing={playing} />
+    </Container>
   )
 }
