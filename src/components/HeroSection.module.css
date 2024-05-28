@@ -1,0 +1,45 @@
+.sectionWrapper {
+  @apply items-center justify-center gap-8 max-w-md min-w-full;
+  @apply md:flex-col md:max-w-screen-lg md:py-14 xl:max-w-screen-2xl;
+}
+
+.herozone::after {
+  @apply content-[''] -z-10 absolute;
+  @apply inset-0 m-auto aspect-square bg-gray-500/70 w-[200px] rounded-full blur-[120px];
+  @apply lg:w-[180px] lg:blur-[80px];
+  @apply animate-fade-in-2s;
+}
+
+.herozone {
+  --line: hsl(0 0% 95% / 0.35);
+  --size: 80px;
+  @apply flex flex-col justify-center w-full text-center min-w-full;
+  @apply relative;
+}
+
+.herozone::before {
+  @apply content-[""] h-full w-full absolute -top-10 lg:-top-4 -z-10;
+  background:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(--size) var(--size);
+  mask: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 10%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.005) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+@media only screen and (max-width: 767px) {
+  .herozone::before {
+    --size: 50px;
+    mask: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 15%,
+      rgba(255, 255, 255, 0.05) 65%,
+      rgba(255, 255, 255, 0.005) 92%,
+      transparent 100%
+    );
+  }
+}
