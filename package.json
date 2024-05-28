@@ -7,7 +7,7 @@
     "dev:init": "npm run quit-nginx && npm run init-ssl && npm run init-nginx",
     "predev": "npm run dev:init --hostname=arclocal.abouthugo.dev",
     "tw:watch": "tailwindcss --input ./app/globals.css --output ./app/output.css --watch",
-    "build": "tailwindcss ./app/globals.css --output ./app/output.css && next build",
+    "build": "tailwindcss ./src/app/globals.css --output ./src/app/output.css && next build",
     "start": "next start",
     "-------------------------------[utils]-------------------------------": "",
     "create-env": "printenv > .env.production",

@@ -4,7 +4,7 @@ import path from 'path'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-const CONTENT_DIR = 'content'
+const CONTENT_DIR = 'src/content'
 export async function getPostData(id: string) {
   const fullPath = path.join(CONTENT_DIR, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf-8')
