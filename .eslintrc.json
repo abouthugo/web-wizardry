@@ -1,9 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:@tanstack/eslint-plugin-query/recommended", "prettier"],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "no-duplicate-imports": "error",
-    "no-console": "error"
-  }
+  "extends": [
+    "next",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "prettier"
+  ]
 }
