@@ -1,4 +1,3 @@
-import './output.css'
 import { Inter } from 'next/font/google'
 
 import { cn } from '@/lib/utils'
@@ -8,6 +7,8 @@ import Footer from '@components/Footer'
 import { NavBar } from '@components/NavBar'
 
 import styles from './layout.module.css'
+
+import './output.css'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
