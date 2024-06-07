@@ -6,10 +6,10 @@ import PastExperienceSection from './PastExperience'
 
 export const metadata: Metadata = {
   title: 'Hugo Perdomo',
-  description: 'Software developer living in the Philly area',
+  description: 'Software developer based in the Philly area',
   openGraph: {
     title: 'Hugo Perdomo',
-    description: 'Software developer living in the Philly area',
+    description: 'Software developer based in the Philly area',
     images: [
       {
         url: 'https://storage.googleapis.com/wizard-cdn-core/web-preview.jpg',
