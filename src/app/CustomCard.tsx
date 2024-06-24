@@ -1,12 +1,12 @@
+import Image from 'next/image'
+
+import { cn } from '@/lib/utils'
+
+import styles from './CustomCard.module.css'
+
 type CustomCardProps = {
-  data: {
-    from: string
-    to: string
-    role: string
-    company: string
-    description: string
-    tags: string[]
-  }
+  data: Experience
+  className?: string
 }
 
 const Tag = (tag: string) => (
@@ -18,19 +18,33 @@ const Tag = (tag: string) => (
   </span>
 )
 
-function CustomCard({ data }: CustomCardProps) {
+function CustomCard({ data, className }: CustomCardProps) {
   return (
-    <div className="max-w-md overflow-hidden rounded-lg shadow border border-solid border-semi-transparent cursor-pointer hover:border-off-transparent transition-all ease-linear">
-      <div className="grid box-border h-full w-md flex-wrap content-between">
+    <div className={cn('cursor-pointer', styles.__base, className)}>
+      <div className="grid box-border h-full content-between">
         <div className="p-4 text-white">
-          <p className="mb-1 text-sm text-neutral-400">
-            <time>{data.from}</time> - <time>{data.to}</time>
-          </p>
-          <p className="text-xl font-medium">{data.role}</p>
-          <p className="text-xl">{data.company}</p>
+          <div className="flex gap-1 items-start justify-between">
+            <div>
+              <p className="text-xl font-semibold">{data.company}</p>
+              <p className="text-xl">{data.role}</p>
+              <p className="mb-1 text-sm text-neutral-400">
+                <time>{data.from}</time> - <time>{data.to}</time>
+              </p>
+            </div>
+            <div className="w-14 h-14">
+              <Image
+                className={styles.__image}
+                src={data.imgSrc}
+                width={256}
+                height={256}
+                objectFit="contain"
+                alt="Stetson"
+              />
+            </div>
+          </div>
           <p className="mt-1 text-neutral-300">{data.description}</p>
         </div>
-        <div className="py-4 px-2 flex gap-x-2 gap-y-3 flex-wrap items-center">{data.tags.map(Tag)}</div>
+        <div className="p-4 flex gap-x-2 gap-y-3 flex-wrap items-center">{data.tags.map(Tag)}</div>
       </div>
     </div>
   )
