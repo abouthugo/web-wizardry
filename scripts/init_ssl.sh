@@ -23,5 +23,7 @@ else
     echo "Generating SSL certificates for: ${DOMAINS[@]}"
     mkcert -cert-file "$CERT_PATH" -key-file "$KEY_PATH" "${DOMAINS[@]}"
     echo "Certificates generated at $CERT_PATH and $KEY_PATH"
+    sudo trust anchor --store $CERT_PATH
+    mkcert -install
 fi
 
