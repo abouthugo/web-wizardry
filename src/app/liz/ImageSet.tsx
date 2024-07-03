@@ -7,6 +7,8 @@ import { usePreloadImages } from '@/hooks/use-preload-images'
 
 import { SerifTitle } from '@components/Typography'
 
+import { pureImageLoader } from '@lib/imageLoaders'
+
 import CardPlayerControls from './CardPlayerControls'
 import CardSkeleton from './CardSkeleton'
 
@@ -23,6 +25,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 )
+
 export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
   const { data, error, isLoading } = usePreloadImages({ srcList, title, subTitle })
   const [index, setIndex] = useState(0)
@@ -75,6 +78,7 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
 
     return (
       <Image
+        loader={pureImageLoader}
         key={`${src}-${i}`}
         src={src}
         fill

@@ -1,11 +1,9 @@
 import { useMediaQuery } from '@react-hookz/web'
-import Image, { type ImageLoader } from 'next/image'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Marquee from 'react-fast-marquee'
 
-const imageLoader: ImageLoader = ({ src }) => {
-  return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons${src}`
-}
+import { devIconsImageLoader } from '@lib/imageLoaders'
 
 const logos = [
   {
@@ -169,7 +167,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
               <div className="flex flex-col justify-center items-center gap-3 p-6">
                 <div className="h-8 md:h-10">
                   <Image
-                    loader={imageLoader}
+                    loader={devIconsImageLoader}
                     src={logo.src}
                     alt={logo.alt}
                     width={40}

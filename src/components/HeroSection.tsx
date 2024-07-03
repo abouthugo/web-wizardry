@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { googleImageLoader } from '@lib/imageLoaders'
+
 import LogoCarousel from './LogoCarousel'
 import { Title } from './Typography'
 
@@ -30,7 +32,8 @@ export default function HeroSection() {
         <div className="w-72 flex items-center justify-center p-6 mx-auto">
           <div className="border border-semi-transparent rounded-full overflow-clip">
             <Image
-              src="https://storage.googleapis.com/wizard-cdn-core/latest_3.jpg"
+              loader={googleImageLoader}
+              src="/latest_3.jpg"
               alt="Profile picture"
               width="232"
               height="232"
