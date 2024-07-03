@@ -1,5 +1,5 @@
-# Use the official Node.js image as the base image
-FROM node:20-alpine
+# Stage 1: Build
+FROM node:20-alpine as builder
 
 # Create and set the working directory
 WORKDIR /app
@@ -15,6 +15,15 @@ COPY . .
 
 # Build the Next.js app
 RUN npm run build
+
+# Stage 2: Runner
+FROM node:20-alpine as runner
+
+# Create and set the working directory
+WORKDIR /app
+
+# Copy the built files from the builder stage
+COPY --from=builder /app ./
 
 # Set the environment variable for the Node.js server
 ENV NODE_ENV production
