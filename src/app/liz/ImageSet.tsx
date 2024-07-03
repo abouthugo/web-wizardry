@@ -78,13 +78,13 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
 
     return (
       <Image
-        loader={pureImageLoader}
         key={`${src}-${i}`}
         src={src}
         fill
         sizes="(max-width: 768) 100vw;"
         className={commonClasses}
         alt="some-picture"
+        unoptimized
       />
     )
   }
