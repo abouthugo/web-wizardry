@@ -22,11 +22,10 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Set the correct permission for prerender cache
-RUN chown -R nextjs:nodejs .next
+RUN chown -R nextjs:nodejs /app/.next
 
 # From this github comment: https://github.com/vercel/next.js/discussions/16995#discussioncomment-841952
 RUN mkdir -p /app/.next/cache/images && chown nextjs:nodejs /app/.next/cache/images
-VOLUME /app/.next/cache/images
 
 # Set the environment variable for the Node.js server
 ENV NODE_ENV production
