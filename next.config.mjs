@@ -15,7 +15,8 @@ const nextConfig = {
         pathname: '/gh/devicons/devicon/icons/**'
       }
     ]
-  }
+  },
+  output: 'standalone'
 }
 
 export default nextConfig
