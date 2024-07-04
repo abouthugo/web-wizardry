@@ -3,7 +3,7 @@ FROM node:20-alpine as builder
 WORKDIR /app
 COPY . .
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 
@@ -21,7 +21,7 @@ VOLUME /app/.next/cache/images
 
 # Copy the built files from the builder stage
 COPY --from=builder /app/package*.json ./
-RUN npm install --only=production
+COPY --from=builder /app/node_modules ./node_modules
 
 COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/public ./public
@@ -29,6 +29,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 
 # Set the environment variable for the Node.js server
 ENV NODE_ENV production
+
+USER nextjs
 
 # Expose the port that the app listens on
 EXPOSE 3000
