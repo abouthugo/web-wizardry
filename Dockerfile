@@ -10,7 +10,7 @@ COPY package*.json ./
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy the rest of the application files to the working directory
 COPY . .
@@ -22,7 +22,6 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Set the correct permission for prerender cache
-RUN mkdir .next
 RUN chown -R nextjs:nodejs .next
 
 # From this github comment: https://github.com/vercel/next.js/discussions/16995#discussioncomment-841952
