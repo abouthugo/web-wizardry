@@ -53,7 +53,7 @@ RUN chown nextjs:nodejs .next
 
 # From this github comment: https://github.com/vercel/next.js/discussions/16995#discussioncomment-841952
 RUN mkdir -p /app/.next/cache/images && chown nextjs:nodejs /app/.next/cache/images
-# VOLUME /app/.next/cache/images
+VOLUME /app/.next/cache/images
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
