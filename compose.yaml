@@ -7,11 +7,11 @@ services:
     volumes:
       - nextjs_cache:/app/.next
       - .:/app
-    command: npm run dev
+    command: npm start
     ports:
-      - "3001:3000"
+      - "3000:3000"
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
 
 volumes:
   nextjs_cache:
