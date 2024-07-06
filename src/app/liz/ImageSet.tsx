@@ -25,6 +25,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 )
+
 export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
   const { data, error, isLoading } = usePreloadImages({ srcList, title, subTitle })
   const [index, setIndex] = useState(0)
@@ -67,9 +68,7 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
   }
 
   const renderMedia = (src: string, i: number) => {
-    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${
-      src !== srcList[index] ? 'opacity-0' : 'opacity-100'
-    }`
+    const commonClasses = `object-cover object-bottom ${src !== srcList[index] ? '-z-10' : 'z-0'}`
 
     if (isVideo(src)) {
       return <video key={`${src}-${i}`} src={src} className={commonClasses} autoPlay loop muted />
@@ -77,6 +76,7 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
 
     return (
       <Image
+        loader={pureImageLoader}
         key={`${src}-${i}`}
         src={src}
         fill
