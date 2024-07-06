@@ -7,7 +7,7 @@ import { usePreloadImages } from '@/hooks/use-preload-images'
 
 import { SerifTitle } from '@components/Typography'
 
-import { pureImageLoader } from '@lib/imageLoaders'
+import { customImageLoader } from '@lib/imageLoaders'
 
 import CardPlayerControls from './CardPlayerControls'
 import CardSkeleton from './CardSkeleton'
@@ -80,6 +80,7 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
         key={`${src}-${i}`}
         src={src}
         fill
+        loader={customImageLoader}
         sizes="(max-width: 768) 100vw;"
         className={commonClasses}
         alt="some-picture"

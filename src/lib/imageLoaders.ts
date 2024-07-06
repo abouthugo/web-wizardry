@@ -1,11 +1,14 @@
+'use client'
+
 import { ImageLoader } from 'next/image'
 
-export const googleImageLoader: ImageLoader = ({ src }) => {
-  return `https://storage.googleapis.com/wizard-cdn-core${src}`
-}
+export const customImageLoader: ImageLoader = ({ src, width = 600, quality }) => {
+  const query = new URLSearchParams()
 
-export const devIconsImageLoader: ImageLoader = ({ src }) => {
-  return `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons${src}`
-}
+  const imageOptimizationApi = String(process.env.NEXT_PUBLIC_IMAGE_API)
 
-export const pureImageLoader: ImageLoader = ({ src }) => src
+  if (width) query.set('width', String(width))
+  if (quality) query.set('quality', String(quality))
+
+  return `${imageOptimizationApi}/${src}?${query.toString()}`
+}

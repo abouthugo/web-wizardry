@@ -4,9 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'storage.googleapis.com',
+        hostname: 'storage.abouthugo.dev',
         port: '',
-        pathname: '/wizard-cdn-core/**'
+        pathname: '/webstorage/**'
       },
       {
         protocol: 'https',
@@ -15,7 +15,8 @@ const nextConfig = {
         pathname: '/gh/devicons/devicon/icons/**'
       }
     ]
-  }
+  },
+  output: 'standalone'
 }
 
 export default nextConfig
