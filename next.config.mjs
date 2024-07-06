@@ -4,9 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'storage.googleapis.com',
+        hostname: 'storage.abouthugo.dev',
         port: '',
-        pathname: '/wizard-cdn-core/**'
+        pathname: '/webstorage/**'
       },
       {
         protocol: 'https',
