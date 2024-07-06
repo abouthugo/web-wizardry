@@ -3,8 +3,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Marquee from 'react-fast-marquee'
 
-import { devIconsImageLoader } from '@lib/imageLoaders'
-
+const devIconsEndpoint = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 const logos = [
   {
     alt: 'html',
@@ -113,6 +112,7 @@ const logos = [
 type Props = {
   onMarqueeMounted: () => void
 }
+
 const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
   const isMobile = useMediaQuery('only screen and (max-width: 768px)')
   const [_, setImageList] = useState<boolean[]>(new Array(logos.length).fill(false))
@@ -167,8 +167,7 @@ const LogoCarousel: React.FC<Props> = ({ onMarqueeMounted }) => {
               <div className="flex flex-col justify-center items-center gap-3 p-6">
                 <div className="h-8 md:h-10">
                   <Image
-                    loader={devIconsImageLoader}
-                    src={logo.src}
+                    src={`${devIconsEndpoint}${logo.src}`}
                     alt={logo.alt}
                     width={40}
                     height={40}

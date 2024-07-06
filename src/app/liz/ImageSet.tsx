@@ -76,7 +76,6 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
 
     return (
       <Image
-        loader={pureImageLoader}
         key={`${src}-${i}`}
         src={src}
         fill
