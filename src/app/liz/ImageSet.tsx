@@ -68,7 +68,7 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
   }
 
   const renderMedia = (src: string, i: number) => {
-    const commonClasses = `object-cover object-bottom ${src !== srcList[index] ? '-z-10' : 'z-0'}`
+    const commonClasses = `transition-opacity duration-300 ease-in-out object-cover object-bottom ${src !== srcList[index] ? 'opacity-0' : 'opacity-100'}`
 
     if (isVideo(src)) {
       return <video key={`${src}-${i}`} src={src} className={commonClasses} autoPlay loop muted />
