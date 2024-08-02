@@ -26,8 +26,9 @@ const Container = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
-  const { data, error, isLoading } = usePreloadImages({ srcList, title, subTitle })
+export default function ImageSet(album: AlbumType) {
+  const srcList = album.expand.photos.map(i => i.src)
+  const { data, error, isLoading } = usePreloadImages(album)
   const [index, setIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
 
@@ -91,9 +92,9 @@ export default function ImageSet({ title, subTitle, srcList }: IPhoto) {
     <Container>
       {data?.map(renderMedia)}
       <div className="absolute bottom-0 left-0 w-full px-2 pb-2 bg-gradient-to-t from-[rgba(0,0,0,.45)] pt-8">
-        <SerifTitle className="text-5xl">{title}</SerifTitle>
+        <SerifTitle className="text-5xl">{album.title}</SerifTitle>
         <p className="font-thin text-lg">
-          {subTitle}
+          {album.subtitle}
           {debugPane && `::${index}`}
         </p>
       </div>
