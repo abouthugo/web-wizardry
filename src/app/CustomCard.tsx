@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import styles from './CustomCard.module.css'
 
 type CustomCardProps = {
-  data: Experience
+  data: WorkExperience
   className?: string
 }
 
@@ -20,14 +20,14 @@ const Tag = (tag: string) => (
 
 function CustomCard({ data, className }: CustomCardProps) {
   return (
-    <div className={cn('cursor-pointer', styles.__base, className)}>
+    <div className={cn(styles.__base, className)}>
       <div className="grid box-border h-full content-between">
-        <div className="p-4 text-white">
+        <div className="px-4 pt-4 text-white">
           <div className="flex gap-1 items-start justify-between">
             <div>
               <p className="text-xl font-semibold">{data.company}</p>
               <p className="text-xl">{data.role}</p>
-              <p className="mb-1 text-sm text-neutral-400">
+              <p className="pb-1 text-sm text-neutral-400">
                 <time>{data.from}</time> - <time>{data.to}</time>
               </p>
             </div>
@@ -42,9 +42,9 @@ function CustomCard({ data, className }: CustomCardProps) {
               />
             </div>
           </div>
-          <p className="mt-1 text-neutral-300">{data.description}</p>
+          <p className="text-neutral-300">{data.description}</p>
         </div>
-        <div className="p-4 flex gap-x-2 gap-y-3 flex-wrap items-center">{data.tags.map(Tag)}</div>
+        <div className="p-4 flex gap-x-2 gap-y-3 flex-wrap">{data.tags.map(Tag)}</div>
       </div>
     </div>
   )

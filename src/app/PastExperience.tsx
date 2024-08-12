@@ -10,9 +10,9 @@ const workHistory = getExperience()
 const PastExperienceSection = () => (
   <section className="md:container my-10 lg:my-16 static mx-auto">
     <div className="p-2 box-border rounded-lg pb-3">
-      <Title className="text-white">Past Lives</Title>
-      <div className="overflow-x-scroll py-4">
-        <div className="flex-row space-y-8 md:space-y-0 md:inline-flex gap-14 overflow-x-scroll">
+      <Title className="text-center md:text-left text-white">Past Lives</Title>
+      <div className="overflow-x-scroll rounded-lg">
+        <div className="flex flex-col items-center md:items-stretch md:flex-row md:inline-flex gap-4 overflow-x-scroll">
           {workHistory &&
             workHistory.map(data => (
               <CustomCard

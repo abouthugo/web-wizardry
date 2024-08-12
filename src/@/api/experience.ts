@@ -22,7 +22,8 @@ export const getExperience = (): WorkExperience[] => [
     from: 'July 2023',
     to: 'Present',
     imgSrc: '/images/comcast-icon.png',
-    description: 'Chromecast, syndication work, millions of users, player, cross functional',
+    description:
+      "I'm currently working on maintaining the Xfinity Stream Web App and building the next generation of apps that will serve Xfinity's customers accross their different devices at home or on the go.",
     tags: ['Frontend', 'Typescript', 'React']
   },
   {
