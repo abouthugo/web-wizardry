@@ -1,0 +1,72 @@
+.__base {
+  width: 360px;
+  border: 1px solid #242728;
+  border-radius: 20px;
+  background-clip: border-box;
+  background-attachment: scroll;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.__purple {
+  background-image: radial-gradient(99.74% 100% at 50% 0%, rgba(74, 21, 75, 0.7), rgba(29, 5, 29, 0.42));
+  box-shadow:
+    rgba(0, 0, 0, 0.5) 0px 30px 50px 0px,
+    rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset,
+    rgba(79, 7, 59, 0.1) 0px 0px 20px 3px,
+    rgba(85, 0, 98, 0.1) 0px 0px 40px 20px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+}
+
+.__blue {
+  background-image: radial-gradient(94.21% 78.4% at 50% 29.91%, rgba(43, 94, 180, 0.7), rgba(13, 16, 35, 0.42));
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset,
+    rgba(7, 13, 79, 0.1) 0px 0px 20px 3px,
+    rgba(85, 0, 98, 0.1) 0px 0px 40px 20px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+}
+
+.__magenta {
+  --gradient-1: rgba(91, 32, 52, 0.7);
+  --gradient-2: rgba(33, 7, 17, 0.7);
+  --shadow-main: rgba(79, 7, 31, 0.05);
+  --shadow-comp: rgba(255, 255, 255, 0, 1);
+  background-image: linear-gradient(138deg, var(--gradient-1) 22%, var(--gradient-2) 82%);
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset,
+    var(--shadow-main) 0px 0px 20px 3px,
+    var(--shadow-main) 0px 0px 40px 20px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+}
+
+.__brown {
+  --gradient-1: rgba(160, 99, 40, 0.4);
+  --gradient-2: rgba(34, 20, 7, 0.4);
+  --shadow-main: rgba(79, 39, 7, 0.05);
+  --shadow-comp: rgba(255, 255, 255, 0, 1);
+  background-image: linear-gradient(138deg, var(--gradient-1) 22%, var(--gradient-2) 82%);
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset,
+    var(--shadow-main) 0px 0px 20px 3px,
+    var(--shadow-main) 0px 0px 40px 20px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+}
+
+.__red {
+  --gradient-1: rgba(141, 7, 7, 0.4);
+  --gradient-2: rgba(39, 1, 1, 0.4);
+  --shadow-main: rgba(112, 0, 0, 0.05);
+  --shadow-comp: rgba(255, 255, 255, 0, 1);
+  background-image: linear-gradient(138deg, var(--gradient-1) 22%, var(--gradient-2) 82%);
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset,
+    var(--shadow-main) 0px 0px 20px 3px,
+    var(--shadow-main) 0px 0px 40px 20px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+}
+
+.__image {
+  box-shadow: 0 1.189px 2.377px 0 rgba(0, 0, 0, 0.28);
+  @apply rounded-lg;
+}
