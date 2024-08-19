@@ -1,3 +1,4 @@
+import PlausibleProvider from 'next-plausible'
 import { Inter } from 'next/font/google'
 
 import { cn } from '@/lib/utils'
@@ -14,6 +15,15 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-dvh">
+      <head>
+        <PlausibleProvider
+          domain="abouthugo.dev"
+          selfHosted={true}
+          scriptProps={{
+            src: 'https://analytics.abouthugo.dev/js/script.js'
+          }}
+        />
+      </head>
       <QueryProvider>
         <body className="flex min-h-full flex-col">
           <div className={cn(inter.className, styles.base)}>
