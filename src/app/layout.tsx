@@ -1,5 +1,5 @@
-import PlausibleProvider from 'next-plausible'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 import { cn } from '@/lib/utils'
 import QueryProvider from '@/providers/query-provider'
@@ -16,12 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="h-dvh">
       <head>
-        <PlausibleProvider
-          domain="abouthugo.dev"
-          selfHosted={true}
-          scriptProps={{
-            src: 'https://analytics.abouthugo.dev/js/script.js'
-          }}
+        <Script
+          async
+          src="https://analytics-v2.abouthugo.dev/script.js"
+          data-website-id="e45d1448-d12c-4b40-9be7-4f4c4c772d59"
         />
       </head>
       <QueryProvider>
