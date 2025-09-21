@@ -1,14 +1,26 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import GithubLogo from '../images/github.svg'
+import EmailLogo from '../images/email.svg'
+import LinkedInLogo from '../images/linkedin.svg'
 ---
 
 <MainLayout>
+  <div class="h-screen flex items-center justify-center">
   <section class="text-center flex flex-col gap-8">
     <h1 class="text-4xl font-bold">Hugo Perdomo</h1>
-    <ul class="flex flex-col gap-4 justify-center">
-      <li><a href="mailto:him@hugoperdomo.com">him@hugoperdomo.com</a></li>
-      <li><a href="https://github.com/abouthugo">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/hugoperdomo/">LinkedIn</a></li>
+    <ul class="flex gap-4 justify-center">
+      <li class="flex justify-center items-center gap-2">
+        <EmailLogo width={24} height={24}/>
+        <a href="mailto:him@hugoperdomo.com">Email</a>
+      </li>
+      <li class="flex justify-center items-center gap-2">
+        <GithubLogo width={24} height={24}/>
+        <a href="https://github.com/abouthugo">GitHub</a></li>
+      <li class="flex justify-center items-center gap-2">
+        <LinkedInLogo width={24} height={24}/>
+        <a href="https://www.linkedin.com/in/hugoperdomo/">LinkedIn</a></li>
     </ul>
   </section>
+  </div>
 </MainLayout>
