@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 a {
-  @apply text-blue-800
+  @apply text-blue-800;
 }
 
-
 a:visited {
-  @apply text-purple-800
+  @apply text-purple-800;
 }
