@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
+body {
+  @apply text-emerald-50;
+  background: #030712;
+}
+
 a {
-  @apply text-blue-800;
+  @apply text-green-300;
+}
+
+a svg {
+  @apply fill-green-300;
 }
 
 a:visited {
-  @apply text-purple-800;
+  @apply text-purple-300;
 }
