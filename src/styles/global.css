@@ -6,13 +6,9 @@ body {
 }
 
 a {
-  @apply text-green-300;
+  @apply text-green-400;
 }
 
 a svg {
-  @apply fill-green-300;
-}
-
-a:visited {
-  @apply text-purple-300;
+  @apply fill-green-400;
 }
