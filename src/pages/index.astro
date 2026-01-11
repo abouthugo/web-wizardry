@@ -1,31 +1,22 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import GithubLogo from "../images/github.svg";
-import EmailLogo from "../images/email.svg";
-import LinkedInLogo from "../images/linkedin.svg";
+import { Content as AboutContent } from "../writing/about.md";
+import cn from "../utils/cn";
+
+const baseStyles = [
+  // layout specific
+  "flex flex-col gap-5",
+
+  // handles the text
+  "font-iawriter text-lg leading-[1.78] text-gray-300 md:text-base md:leading-[1.75]",
+
+  // handles the anchor tags
+  "[&_a]:text-green-200 [&_a]:decoration-green-400 [&_a]:underline [&_a]:underline-offset-[3px]",
+];
 ---
 
 <MainLayout>
-  <div class="flex h-screen flex-col items-center justify-center">
-    <section class="flex flex-col gap-2 pb-8 text-center">
-      <h1 class="text-4xl font-bold">Hugo Perdomo</h1>
-      <ul class="flex justify-center gap-4">
-        <li class="flex items-center justify-center gap-2">
-          <a href="mailto:him@hugoperdomo.com">
-            <EmailLogo class="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/abouthugo">
-            <GithubLogo class="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/hugoperdomo/">
-            <LinkedInLogo class="h-6 w-6" />
-          </a>
-        </li>
-      </ul>
-    </section>
-  </div>
+  <section class:list={cn(baseStyles)}>
+    <AboutContent />
+  </section>
 </MainLayout>
