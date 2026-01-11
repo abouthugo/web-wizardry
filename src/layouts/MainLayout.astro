@@ -1,6 +1,10 @@
 ---
+import "@fontsource-variable/zalando-sans-expanded";
 import "../styles/global.css";
 import Head from "../components/Head.astro";
+import Logo from "../images/logo.svg";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -13,7 +17,40 @@ const { title = "Hugo Perdomo" } = Astro.props;
     <meta charset="utf-8" />
     <Head title={title} />
   </head>
-  <body class="mx-auto max-w-2xl">
-    <slot />
-  </body>
+  <div
+    class="lg_mt-32 mx-4 mt-8 mb-40 flex max-w-5xl flex-col md:mt-20 md:flex-row lg:mx-auto"
+  >
+    <aside class="-mx-4 md:mx-0 md:w-[200px] md:shrink-0 md:px-0">
+      <div class="lg:sticky lg:top-20">
+        <div
+          class="mb-2 flex flex-col items-start space-y-10 px-4 md:mb-20 md:flex-row md:px-0"
+        >
+          <a href="/" class="text-green-950">
+            <Logo class="h-9 w-9" />
+          </a>
+          <h1
+            class="font-zalando font-lg mt-[9px] font-semibold tracking-wide uppercase md:hidden"
+          >
+            <a href="/">Hugo Perdomo</a>
+          </h1>
+        </div>
+      </div>
+      <Navigation />
+    </aside>
+    <main class="mt-6 flex min-w-0 flex-auto flex-col md:mt-0">
+      <h1
+        class="font-zalando font-lg mt-[9px] mb-20 hidden font-semibold tracking-wide text-gray-100 uppercase md:block"
+      >
+        <a href="/">Hugo Perdomo</a>
+      </h1>
+      <div class="flex-auto">
+        <div class="flex flex-1 items-start space-x-4">
+          <div class="w-full md:w-9/12">
+            <slot />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  </div>
 </html>
