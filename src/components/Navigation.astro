@@ -1,0 +1,29 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
+const navItems = [{ label: "About", href: "/" }];
+---
+
+<nav
+  class="fade relative flex scroll-pr-6 flex-row items-start overflow-scroll px-4 pb-4 md:relative md:top-[-7px] md:left-[-6px] md:flex-col md:overflow-auto md:px-0 md:pb-0"
+>
+  <ul class="flex flex-row space-x-4 pr-10 md:flex-col md:space-x-0">
+    {
+      navItems.map((item) => {
+        let isActive = item.href.slice(1) === currentPath;
+        return (
+          <li class="flex flex-col-reverse items-center py-1 text-sm md:flex-row">
+            <a
+              class="relative px-2 py-1 text-gray-400 transition-opacity before:absolute before:top-1/2 before:-right-1 before:h-[1.2em] before:w-[1ch] before:-translate-y-1/2 before:bg-transparent before:transition-all before:duration-100 before:content-[''] hover:data-[active=false]:text-white data-[active=true]:text-green-500 data-[active=true]:before:animate-pulse data-[active=true]:before:bg-green-500/60 data-[active=true]:before:opacity-100"
+              href={item.href}
+              data-active={isActive}
+            >
+              <span>{item.label}</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
