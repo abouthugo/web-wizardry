@@ -1,0 +1,35 @@
+---
+import GithubLogo from "../images/github.svg";
+import EmailLogo from "../images/email.svg";
+import LinkedInLogo from "../images/linkedin.svg";
+---
+
+<footer
+  class="flex items-center justify-between text-sm text-gray-400 md:w-9/12"
+>
+  <h3>&copy; <span id="year"></span> Hugo Perdomo</h3>
+  <nav class="flex space-x-2 fill-gray-400 text-gray-400">
+    <a
+      href="mailto:him@hugoperdomo.com"
+      class="hover:fill-gray-100 hover:text-gray-100"
+    >
+      <EmailLogo class="h-[18px] w-[18px]" />
+    </a>
+    <a
+      href="https://github.com/abouthugo"
+      class="hover:fill-gray-100 hover:text-gray-100"
+    >
+      <GithubLogo class="h-[18px] w-[18px]" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/hugoperdomo/"
+      class="hover:fill-gray-100 hover:text-gray-100"
+    >
+      <LinkedInLogo class="h-[18px] w-[18px]" />
+    </a>
+  </nav>
+</footer>
+
+<script>
+  document.getElementById("year")!.textContent = new Date().getFullYear().toString();
+</script>
