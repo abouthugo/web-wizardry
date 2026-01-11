@@ -41,3 +41,7 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Fonts
+
+- The body font can be found in [this GitHub repo](https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Quattro/Webfonts)

@@ -1,14 +1,32 @@
 @import "tailwindcss";
 
+@theme {
+  --font-zalando: "Zalando Sans Expanded Variable", sans-serif;
+  --font-iawriter: "iAWriterQuattro", sans-serif;
+}
+
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: "iAWriterQuattro";
+  src: url("/fonts/iAWriterQuattroS-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iAWriterQuattro";
+  src: url("/fonts/iAWriterQuattroS-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   @apply text-emerald-50;
   background: #030712;
 }
 
-a {
-  @apply text-green-400;
-}
-
-a svg {
-  @apply fill-green-400;
+footer {
+  margin-top: 5rem;
 }
