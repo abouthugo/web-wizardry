@@ -1,0 +1,43 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import UrlList from "../components/UrlList.astro";
+const books = [
+  { uri: "https://a.co/d/2GmI4WL", title: "AI Engineering" },
+  { uri: "https://a.co/d/gJLJHJ4", title: "Hands-On Large Language Models" },
+  { uri: "https://a.co/d/eRdLp6L", title: "System Design Interview Vol 1" },
+  { uri: "https://a.co/d/gHifL8J", title: "System Design Interview Vol 2" },
+  { uri: "https://a.co/d/48kUUQM", title: "A Philosophy of Software Design" },
+  { uri: "https://a.co/d/grpEPTW", title: "Understanding Distributed Systems" },
+];
+const links = [
+  {
+    uri: "https://www.amazon.com/gp/product/B079HHZ63W",
+    title: "Drawing Tablet",
+  },
+  {
+    uri: "https://www.lochby.com/products/pocket-size-notebooks-4-pack",
+    title: "Pocket-size Notebooks",
+  },
+  {
+    uri: "https://www.lochby.com/products/mini-field-journal",
+    title: "Mini Field Journal",
+  },
+  { uri: "https://www.amazon.com/dp/B07SRQH4R7", title: "Dash Cam" },
+];
+---
+
+<MainLayout>
+  <div class="flex flex-col">
+    <header class="pb-6">
+      <h1
+        class="zalando max-w-fit bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
+      >
+        Wish List
+      </h1>
+    </header>
+    <div class="flex flex-col gap-2">
+      <UrlList title="Books" list={books} />
+      <UrlList title="Gadgets" list={links} />
+    </div>
+  </div>
+</MainLayout>
