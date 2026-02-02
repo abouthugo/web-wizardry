@@ -8,12 +8,13 @@ experience for Roku devices. I gotta say, moving from the browser to the Roku
 ecosystem has been a fascinating journey.
 
 Outside of work, I spend way too much time looking at
-[/r/selfhosted](https://www.reddit.com/r/selfhosted/). I recently built a
-makeshift homelab out of an old ThinkPad, where I manage a K3S cluster running
+[/r/selfhosted](https://www.reddit.com/r/selfhosted/).
+I recently built a makeshift homelab out of an old ThinkPad, where I manage a
+K3S cluster running
 [Pi-Hole](https://pi-hole.net/), [Grafana](https://grafana.com/),
-[Commafeed](https://github.com/Athou/commafeed), and
-[Plane](https://plane.so/). It’s my favorite sandbox for testing new tools and
-workflows.
+[Commafeed](https://github.com/Athou/commafeed),
+[Plane](https://plane.so/) and more.
+It’s my favorite sandbox for testing new tools and workflows.
 
 When I’m away from the keyboard, I’m usually playing folk music on my guitar
 (lately a lot of [Noah
