@@ -18,3 +18,19 @@ const { title = "My Astro Website" } = Astro.props;
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="HP.COM" />
 <link rel="manifest" href="/site.webmanifest" />
+
+{/* Preload fonts */}
+<link
+  rel="preload"
+  href="/fonts/iAWriterQuattroS-Regular.woff"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/iAWriterQuattroS-Bold.woff"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
