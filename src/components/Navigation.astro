@@ -18,6 +18,7 @@ const navItems = [{ label: "About", href: "/" }];
               class="relative px-2 py-1 text-gray-400 transition-opacity before:absolute before:top-1/2 before:-right-1 before:h-[1.2em] before:w-[1ch] before:-translate-y-1/2 before:bg-transparent before:transition-all before:duration-100 before:content-[''] hover:data-[active=false]:text-white data-[active=true]:text-green-500 data-[active=true]:before:animate-pulse data-[active=true]:before:bg-green-500/60 data-[active=true]:before:opacity-100"
               href={item.href}
               data-active={isActive}
+              data-astro-prefetch
             >
               <span>{item.label}</span>
             </a>
